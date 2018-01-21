@@ -1,3 +1,0 @@
-In few cases there is bad usage of grep - I'll fix it some day, if I will find time. Use renaming filenames with spaces with:
-#sudo aptitude install rename
-#rename 's/ /_/g' *
