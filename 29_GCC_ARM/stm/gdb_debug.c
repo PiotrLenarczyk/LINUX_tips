@@ -4,6 +4,11 @@
 //#	monitor reset halt 
 //#	b main  #break main
 //#	b 119	#break line 119 
+//#	b main.c:main	#break at file main.c at function main
+//#	b 119 if ( i == 15 )	#break at line no 119, if i variable equals 15
+//#	tbreak 119	#one-time-hit temporary breakpoint at line no. 119
+//#	watch i		#watch - set breakpoint for each variable value change
+//#	watch ( i == 15 ) #watchpoint - set breakpoint if variable i equals 15
 //#	c		#continue -> resume program execution
 //#	s		#step -> single source line steps
 //#	next	#single source line without steps
@@ -24,6 +29,7 @@
 //#	bt		#backtrace -> print stack calls
 //#	bt 3 full	#print last three stack calls with local variables values
 //#	info target	#target connection details
+//#	info breakpoints #view all program breakpoints
 //#	info source	#info about codefile
 //#	info stack	#current instruction calls
 //#	info program #target instruction address where program stops
