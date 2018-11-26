@@ -107,8 +107,8 @@ typedef volatile float vf;
 #define POLY_32( macroName, val, N, coef, ... )			macroName( val, 31, coef ) POLY_31( macroName, val, coef, __VA_ARGS__ )
 #define	_POLY( powBase, powOrd, coef )						+ ( coef ) * ( POW( powBase, powOrd ) )
 #define POLY_CUMMULATIVE_( N, macroName, powBase, ... )		CONCATENATE( POLY_, N )( macroName, powBase, N, __VA_ARGS__ )
-#define POLY_CUMMUlATIVE( powBase, macroName, ... ) 		POLY_CUMMULATIVE_( COUNT( __VA_ARGS__ ), macroName, powBase, __VA_ARGS__ )
-#define	POLYNOMIAL( powBase, ... )							0x0 + POLY_CUMMUlATIVE( powBase, _POLY, __VA_ARGS__ ); //at least frist order
+#define POLY_CUMMULATIVE( powBase, macroName, ... ) 		POLY_CUMMULATIVE_( COUNT( __VA_ARGS__ ), macroName, powBase, __VA_ARGS__ )
+#define	POLYNOMIAL( powBase, ... )							0x0 + POLY_CUMMULATIVE( powBase, _POLY, __VA_ARGS__ ); //at least frist order
 
 
 #define COUNT( ... ) 			COUNT_( __VA_ARGS__, COUNT_RSEQ_N() )
