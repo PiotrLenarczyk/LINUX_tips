@@ -37,6 +37,7 @@ typedef volatile float vf;
 #else	
 	#define	asm	asm
 #endif
+#define	LOOP_0( x )						
 #define	LOOP_1( x )						x
 #define	LOOP_2( x )						x LOOP_1( x )
 #define	LOOP_3( x )						x LOOP_2( x )
@@ -71,6 +72,44 @@ typedef volatile float vf;
 #define	LOOP_32( x )					x LOOP_31( x )
 #define	POW( val, order )				1 LOOP_##order( *(val) )
 #define	POWF( val, order )				1.0f LOOP_##order( *(val) )
+
+#define POLY_1( macroName, val, N, coef, ... ) 			macroName( val, 0, coef )
+#define POLY_2( macroName, val, N, coef, ... )			macroName( val, 1, coef ) POLY_1( macroName, val, coef, __VA_ARGS__ )
+#define POLY_3( macroName, val, N, coef, ... )			macroName( val, 2, coef ) POLY_2( macroName, val, coef, __VA_ARGS__ )
+#define POLY_4( macroName, val, N, coef, ... )			macroName( val, 3, coef ) POLY_3( macroName, val, coef, __VA_ARGS__ )
+#define POLY_5( macroName, val, N, coef, ... )			macroName( val, 4, coef ) POLY_4( macroName, val, coef, __VA_ARGS__ )
+#define POLY_6( macroName, val, N, coef, ... )			macroName( val, 5, coef ) POLY_5( macroName, val, coef, __VA_ARGS__ )
+#define POLY_7( macroName, val, N, coef, ... )			macroName( val, 6, coef ) POLY_6( macroName, val, coef, __VA_ARGS__ )
+#define POLY_8( macroName, val, N, coef, ... )			macroName( val, 7, coef ) POLY_7( macroName, val, coef, __VA_ARGS__ )
+#define POLY_9( macroName, val, N, coef, ... )			macroName( val, 8, coef ) POLY_8( macroName, val, coef, __VA_ARGS__ )
+#define POLY_10( macroName, val, N, coef, ... )			macroName( val, 9, coef ) POLY_9( macroName, val, coef, __VA_ARGS__ )
+#define POLY_11( macroName, val, N, coef, ... )			macroName( val, 10, coef ) POLY_10( macroName, val, coef, __VA_ARGS__ )
+#define POLY_12( macroName, val, N, coef, ... )			macroName( val, 11, coef ) POLY_11( macroName, val, coef, __VA_ARGS__ )
+#define POLY_13( macroName, val, N, coef, ... )			macroName( val, 12, coef ) POLY_12( macroName, val, coef, __VA_ARGS__ )
+#define POLY_14( macroName, val, N, coef, ... )			macroName( val, 13, coef ) POLY_13( macroName, val, coef, __VA_ARGS__ )
+#define POLY_15( macroName, val, N, coef, ... )			macroName( val, 14, coef ) POLY_14( macroName, val, coef, __VA_ARGS__ )
+#define POLY_16( macroName, val, N, coef, ... )			macroName( val, 15, coef ) POLY_15( macroName, val, coef, __VA_ARGS__ )
+#define POLY_17( macroName, val, N, coef, ... )			macroName( val, 16, coef ) POLY_16( macroName, val, coef, __VA_ARGS__ )
+#define POLY_18( macroName, val, N, coef, ... )			macroName( val, 17, coef ) POLY_17( macroName, val, coef, __VA_ARGS__ )
+#define POLY_19( macroName, val, N, coef, ... )			macroName( val, 18, coef ) POLY_18( macroName, val, coef, __VA_ARGS__ )
+#define POLY_20( macroName, val, N, coef, ... )			macroName( val, 19, coef ) POLY_19( macroName, val, coef, __VA_ARGS__ )
+#define POLY_21( macroName, val, N, coef, ... )			macroName( val, 20, coef ) POLY_20( macroName, val, coef, __VA_ARGS__ )
+#define POLY_22( macroName, val, N, coef, ... )			macroName( val, 21, coef ) POLY_21( macroName, val, coef, __VA_ARGS__ )
+#define POLY_23( macroName, val, N, coef, ... )			macroName( val, 22, coef ) POLY_22( macroName, val, coef, __VA_ARGS__ )
+#define POLY_24( macroName, val, N, coef, ... )			macroName( val, 23, coef ) POLY_23( macroName, val, coef, __VA_ARGS__ )
+#define POLY_25( macroName, val, N, coef, ... )			macroName( val, 24, coef ) POLY_24( macroName, val, coef, __VA_ARGS__ )
+#define POLY_26( macroName, val, N, coef, ... )			macroName( val, 25, coef ) POLY_25( macroName, val, coef, __VA_ARGS__ )
+#define POLY_27( macroName, val, N, coef, ... )			macroName( val, 26, coef ) POLY_26( macroName, val, coef, __VA_ARGS__ )
+#define POLY_28( macroName, val, N, coef, ... )			macroName( val, 27, coef ) POLY_27( macroName, val, coef, __VA_ARGS__ )
+#define POLY_29( macroName, val, N, coef, ... )			macroName( val, 28, coef ) POLY_28( macroName, val, coef, __VA_ARGS__ )
+#define POLY_30( macroName, val, N, coef, ... )			macroName( val, 29, coef ) POLY_29( macroName, val, coef, __VA_ARGS__ )
+#define POLY_31( macroName, val, N, coef, ... )			macroName( val, 30, coef ) POLY_30( macroName, val, coef, __VA_ARGS__ )
+#define POLY_32( macroName, val, N, coef, ... )			macroName( val, 31, coef ) POLY_31( macroName, val, coef, __VA_ARGS__ )
+#define	_POLY( powBase, powOrd, coef )						+ ( coef ) * ( POW( powBase, powOrd ) )
+#define POLY_CUMMULATIVE_( N, macroName, powBase, ... )		CONCATENATE( POLY_, N )( macroName, powBase, N, __VA_ARGS__ )
+#define POLY_CUMMUlATIVE( powBase, macroName, ... ) 		POLY_CUMMULATIVE_( COUNT( __VA_ARGS__ ), macroName, powBase, __VA_ARGS__ )
+#define	POLYNOMIAL( powBase, ... )							0x0 + POLY_CUMMUlATIVE( powBase, _POLY, __VA_ARGS__ ); //at least frist order
+
 
 #define COUNT( ... ) 			COUNT_( __VA_ARGS__, COUNT_RSEQ_N() )
 #define COUNT_( ... )			COUNT_ARG_N( __VA_ARGS__ )
