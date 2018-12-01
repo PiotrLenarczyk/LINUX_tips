@@ -327,6 +327,23 @@ typedef volatile float vf;
 #define	waitBres16( addr, bitNo )					while( (*( ( u16* )( addr ) ) & ( u16 )( 0x1 << ( bitNo ) )) != ( u16 )0x0 );
 #define	waitBres32( addr, bitNo )					while( (*( ( u32* )( addr ) ) & ( u32 )( 0x1 << ( bitNo ) )) != ( u32 )0x0 );
 #define	waitBres64( addr, bitNo )					while( (*( ( u64* )( addr ) ) & ( u64 )( 0x1 << ( bitNo ) )) != ( u64 )0x0 );
+//bit negations:
+#define	bnot8( addr, bitNo )						read8( addr ) = ( ( ~( read8( addr ) & ( 0x1 << bitNo ) ) ) & ( 0x1 << bitNo ) | \
+											( read8( addr ) & ( ~( 0x1 << bitNo ) ) ) )
+#define	bnot16( addr, bitNo )						read16( addr ) = ( ( ~( read16( addr ) & ( 0x1 << bitNo ) ) ) & ( 0x1 << bitNo ) | \
+											( read16( addr ) & ( ~( 0x1 << bitNo ) ) ) )											
+#define	bnot32( addr, bitNo )						read32( addr ) = ( ( ~( read32( addr ) & ( 0x1 << bitNo ) ) ) & ( 0x1 << bitNo ) | \
+											( read32( addr ) & ( ~( 0x1 << bitNo ) ) ) )
+#define	bnot64( addr, bitNo )						read64( addr ) = ( ( ~( read64( addr ) & ( 0x1 << bitNo ) ) ) & ( 0x1 << bitNo ) | \
+											( read64( addr ) & ( ~( 0x1 << bitNo ) ) ) )					
+#define	bnotN8( addr, ... )						read8( addr ) = ( ( ~( read8( addr ) & ( borN8( __VA_ARGS__ ) ) ) ) & ( borN8( __VA_ARGS__ ) ) | \
+											( read8( addr ) & ( ~( borN8( __VA_ARGS__ ) ) ) ) )
+#define	bnotN16( addr, ... )						read16( addr ) = ( ( ~( read16( addr ) & ( borN16( __VA_ARGS__ ) ) ) ) & ( borN16( __VA_ARGS__ ) ) | \
+											( read16( addr ) & ( ~( borN16( __VA_ARGS__ ) ) ) ) )													
+#define	bnotN32( addr, ... )						read32( addr ) = ( ( ~( read32( addr ) & ( borN32( __VA_ARGS__ ) ) ) ) & ( borN32( __VA_ARGS__ ) ) | \
+											( read32( addr ) & ( ~( borN32( __VA_ARGS__ ) ) ) ) )
+#define	bnotN64( addr, ... )						read64( addr ) = ( ( ~( read64( addr ) & ( borN64( __VA_ARGS__ ) ) ) ) & ( borN64( __VA_ARGS__ ) ) | \
+											( read64( addr ) & ( ~( borN64( __VA_ARGS__ ) ) ) ) )
 //32bit Read Modify Write's
 #define	rmw2b( addr,  mask_2b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0x3 << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_2b ) << ( mask_shift ) );
 #define	rmw3b( addr,  mask_3b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0x7 << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_3b ) << ( mask_shift ) );
