@@ -263,10 +263,10 @@ typedef volatile float vf;
 #define	readN16( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=2 ) *( ( u16* )( ( arr_u8_Ptr ) + i ) ) = *( ( u16* )( ( addr ) + i ) ); };
 #define	readN32( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=4 ) *( ( u32* )( ( arr_u8_Ptr ) + i ) ) = *( ( u32* )( ( addr ) + i ) ); };
 #define	readN64( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=8 ) *( ( u64* )( ( arr_u8_Ptr ) + i ) ) = *( ( u64* )( ( addr ) + i ) ); }; //use only with 64b registers
-#define	write8( addr, val )							*( (  u8* )( addr ) ) = (  u8 )val;
-#define	write16( addr, val )						*( ( u16* )( addr ) ) = ( u16 )val;
-#define	write32( addr, val )						*( ( u32* )( addr ) ) = ( u32 )val;
-#define write64( addr, val )						*( ( u64* )( addr ) ) = ( u64 )val;
+#define	write8( addr, val )							*( (  u8* )( addr ) ) = (  u8 )( val );
+#define	write16( addr, val )						*( ( u16* )( addr ) ) = ( u16 )( val );
+#define	write32( addr, val )						*( ( u32* )( addr ) ) = ( u32 )( val );
+#define write64( addr, val )						*( ( u64* )( addr ) ) = ( u64 )( val );
 #define	writeN8( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=1 ) *( (  u8* )( ( addr ) + i ) ) = *( (  u8* )( ( arr_u8_Ptr ) + i ) ); };
 #define	writeN16( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=2 ) *( ( u16* )( ( addr ) + i ) ) = *( ( u16* )( ( arr_u8_Ptr ) + i ) ); };
 #define	writeN32( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=4 ) *( ( u32* )( ( addr ) + i ) ) = *( ( u32* )( ( arr_u8_Ptr ) + i ) ); };
