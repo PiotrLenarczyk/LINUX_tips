@@ -102,6 +102,41 @@ typedef volatile float vf;
 #define	R30				0xBFFFFFFF
 #define	R31				0x7FFFFFFF
 
+#define	SEQ_0( x )						
+#define	SEQ_1( x )					x;
+#define	SEQ_2( x )					x; SEQ_1( x )
+#define	SEQ_3( x )					x; SEQ_2( x )
+#define	SEQ_4( x )					x; SEQ_3( x )
+#define	SEQ_5( x )					x; SEQ_4( x )
+#define	SEQ_6( x )					x; SEQ_5( x )
+#define	SEQ_7( x )					x; SEQ_6( x )
+#define	SEQ_8( x )					x; SEQ_7( x )
+#define	SEQ_9( x )					x; SEQ_8( x )
+#define	SEQ_10( x )					x; SEQ_9( x )
+#define	SEQ_11( x )					x; SEQ_10( x )
+#define	SEQ_12( x )					x; SEQ_11( x )
+#define	SEQ_13( x )					x; SEQ_12( x )
+#define	SEQ_14( x )					x; SEQ_13( x )
+#define	SEQ_15( x )					x; SEQ_14( x )
+#define	SEQ_16( x )					x; SEQ_15( x )
+#define	SEQ_17( x )					x; SEQ_16( x )
+#define	SEQ_18( x )					x; SEQ_17( x )
+#define	SEQ_19( x )					x; SEQ_18( x )
+#define	SEQ_20( x )					x; SEQ_19( x )
+#define	SEQ_21( x )					x; SEQ_20( x )
+#define	SEQ_22( x )					x; SEQ_21( x )
+#define	SEQ_23( x )					x; SEQ_22( x )
+#define	SEQ_24( x )					x; SEQ_23( x )
+#define	SEQ_25( x )					x; SEQ_24( x )
+#define	SEQ_26( x )					x; SEQ_25( x )
+#define	SEQ_27( x )					x; SEQ_26( x )
+#define	SEQ_28( x )					x; SEQ_27( x )
+#define	SEQ_29( x )					x; SEQ_28( x )
+#define	SEQ_30( x )					x; SEQ_29( x )
+#define	SEQ_31( x )					x; SEQ_30( x )
+#define	SEQ_32( x )					x; SEQ_31( x )
+#define DEPLOY( N, instruct ) 		CONCATENATE( SEQ_, N )( instruct );
+
 #define	LOOP_0( x )						
 #define	LOOP_1( x )						x
 #define	LOOP_2( x )						x LOOP_1( x )
@@ -267,10 +302,18 @@ typedef volatile float vf;
 #define	write16( addr, val )						*( ( u16* )( addr ) ) = ( u16 )( val );
 #define	write32( addr, val )						*( ( u32* )( addr ) ) = ( u32 )( val );
 #define write64( addr, val )						*( ( u64* )( addr ) ) = ( u64 )( val );
+#define	write8IncPtr( addrPtr, val )				*( (  u8* )( addrPtr++ ) ) = (  u8 )( val );
+#define	write16IncPtr( addrPtr, val )				*( ( u16* )( addrPtr++ ) ) = ( u16 )( val );
+#define	write32IncPtr( addrPtr, val )				*( ( u32* )( addrPtr++ ) ) = ( u32 )( val );
+#define	write64IncPtr( addrPtr, val )				*( ( u64* )( addrPtr++ ) ) = ( u64 )( val );
 #define	writeN8( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=1 ) *( (  u8* )( ( addr ) + i ) ) = *( (  u8* )( ( arr_u8_Ptr ) + i ) ); };
 #define	writeN16( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=2 ) *( ( u16* )( ( addr ) + i ) ) = *( ( u16* )( ( arr_u8_Ptr ) + i ) ); };
 #define	writeN32( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=4 ) *( ( u32* )( ( addr ) + i ) ) = *( ( u32* )( ( arr_u8_Ptr ) + i ) ); };
 #define	writeN64( addr, size, arr_u8_Ptr )			{ for ( u32 i = 0x0; i < size; i+=8 ) *( ( u64* )( ( addr ) + i ) ) = *( ( u64* )( ( arr_u8_Ptr ) + i ) ); }; //use only with 64b registers
+#define memset8( addrPtr, val, size )				{ u32 t;  u8* tPtr; tPtr = (  u8* )( void* )( addrPtr ); for ( t = 0x0; t < (size); t += 1 ) *tPtr++ = ( val ); };
+#define memset16( addrPtr, val, size )				{ u32 t; u16* tPtr; tPtr = ( u16* )( void* )( addrPtr ); for ( t = 0x0; t < (size); t += 2 ) *tPtr++ = ( val ); };
+#define memset32( addrPtr, val, size )				{ u32 t; u32* tPtr; tPtr = ( u32* )( void* )( addrPtr ); for ( t = 0x0; t < (size); t += 4 ) *tPtr++ = ( val ); };
+#define memset64( addrPtr, val, size )				{ u32 t; u64* tPtr; tPtr = ( u64* )( void* )( addrPtr ); for ( t = 0x0; t < (size); t += 8 ) *tPtr++ = ( val ); };
 #define	or8( addr, mask )							*( (  u8* )( addr ) ) |= (  u8 )( mask );
 #define	or16( addr, mask )							*( ( u16* )( addr ) ) |= ( u16 )( mask );
 #define	or32( addr, mask )							*( ( u32* )( addr ) ) |= ( u32 )( mask );
