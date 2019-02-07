@@ -392,15 +392,14 @@ typedef volatile float vf;
 #define	bnotN64( addr, ... )						read64( addr ) = ( ( ~( read64( addr ) & ( borN64( __VA_ARGS__ ) ) ) ) & ( borN64( __VA_ARGS__ ) ) | \
 																		( read64( addr ) & ( ~( borN64( __VA_ARGS__ ) ) ) ) )
 //timeout'ed procedures
-#define	BUSY_WAIT_ITERATIONS						0x400
-#define	waitBsetTimeout8( addr, bitNo )				{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( (  u8* )( addr ) ) & (  u8 )( 0x1 << ( bitNo ) )) != (  u8 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
-#define	waitBsetTimeout16( addr, bitNo )			{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( ( u16* )( addr ) ) & ( u16 )( 0x1 << ( bitNo ) )) != ( u16 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
-#define	waitBsetTimeout32( addr, bitNo )			{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( ( u32* )( addr ) ) & ( u32 )( 0x1 << ( bitNo ) )) != ( u32 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
-#define	waitBsetTimeout64( addr, bitNo )			{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( ( u64* )( addr ) ) & ( u64 )( 0x1 << ( bitNo ) )) != ( u64 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
-#define	waitBresTimeout8( addr, bitNo )				{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( (  u8* )( addr ) ) & (  u8 )( 0x1 << ( bitNo ) )) != (  u8 )0x0 ) && ( t-- )); };
-#define	waitBresTimeout16( addr, bitNo )			{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( ( u16* )( addr ) ) & ( u16 )( 0x1 << ( bitNo ) )) != ( u16 )0x0 ) && ( t-- )); };
-#define	waitBresTimeout32( addr, bitNo )			{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( ( u32* )( addr ) ) & ( u32 )( 0x1 << ( bitNo ) )) != ( u32 )0x0 ) && ( t-- )); };
-#define	waitBresTimeout64( addr, bitNo )			{ int t; t = BUSY_WAIT_ITERATIONS; while(( (*( ( u64* )( addr ) ) & ( u64 )( 0x1 << ( bitNo ) )) != ( u64 )0x0 ) && ( t-- )); };
+#define	waitBsetTimeout8( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( (  u8* )( addr ) ) & (  u8 )( 0x1 << ( bitNo ) )) != (  u8 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
+#define	waitBsetTimeout16( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u16* )( addr ) ) & ( u16 )( 0x1 << ( bitNo ) )) != ( u16 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
+#define	waitBsetTimeout32( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u32* )( addr ) ) & ( u32 )( 0x1 << ( bitNo ) )) != ( u32 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
+#define	waitBsetTimeout64( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u64* )( addr ) ) & ( u64 )( 0x1 << ( bitNo ) )) != ( u64 )( 0x1 << ( bitNo ) ) ) && ( t-- )); };
+#define	waitBresTimeout8( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( (  u8* )( addr ) ) & (  u8 )( 0x1 << ( bitNo ) )) != (  u8 )0x0 ) && ( t-- )); };
+#define	waitBresTimeout16( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u16* )( addr ) ) & ( u16 )( 0x1 << ( bitNo ) )) != ( u16 )0x0 ) && ( t-- )); };
+#define	waitBresTimeout32( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u32* )( addr ) ) & ( u32 )( 0x1 << ( bitNo ) )) != ( u32 )0x0 ) && ( t-- )); };
+#define	waitBresTimeout64( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u64* )( addr ) ) & ( u64 )( 0x1 << ( bitNo ) )) != ( u64 )0x0 ) && ( t-- )); };
 //32bit Read Modify Write's
 #define	rmw2b( addr,  mask_2b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0x3 << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_2b ) << ( mask_shift ) );
 #define	rmw3b( addr,  mask_3b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0x7 << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_3b ) << ( mask_shift ) );
