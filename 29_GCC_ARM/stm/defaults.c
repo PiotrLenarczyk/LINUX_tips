@@ -401,6 +401,7 @@ typedef volatile float vf;
 #define	waitBresTimeout32( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u32* )( addr ) ) & ( u32 )( 0x1 << ( bitNo ) )) != ( u32 )0x0 ) && ( t-- )); };
 #define	waitBresTimeout64( addr, bitNo, timeout )			{ int t; t = (timeout); while(( (*( ( u64* )( addr ) ) & ( u64 )( 0x1 << ( bitNo ) )) != ( u64 )0x0 ) && ( t-- )); };
 //32bit Read Modify Write's
+#define	rmw( addr, bitNo, bitVal )					*( ( u32* )( addr ) ) &= CONCATENATE( RS, bitNo ); *( ( u32* )( addr ) ) |= ( bitVal << bitNo );
 #define	rmw2b( addr,  mask_2b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0x3 << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_2b ) << ( mask_shift ) );
 #define	rmw3b( addr,  mask_3b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0x7 << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_3b ) << ( mask_shift ) );
 #define	rmw4b( addr,  mask_4b, mask_shift )			*( ( u32* )( addr ) ) = ( *( ( u32* )( addr ) ) & ( u32 )( ~(    0xF << ( mask_shift ) ) ) ) | ( u32 )(  ( mask_4b ) << ( mask_shift ) );
@@ -488,7 +489,7 @@ char *convert(unsigned int num, unsigned int base)
 { 	bufferPtr = &buffer[49]; 
 	*bufferPtr = '\0'; 
 	do 
-	{ 	*--bufferPtr = Representation[num%base]; 
+	{ 	*--bufferPtr = Representation[num % base]; 
 		num /= base; 
 	}while(num != 0); 
 	return bufferPtr; 
