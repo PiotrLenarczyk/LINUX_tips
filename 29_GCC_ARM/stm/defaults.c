@@ -101,6 +101,38 @@ typedef volatile float vf;
 #define	RS29										0xDFFFFFFF
 #define	RS30										0xBFFFFFFF
 #define	RS31										0x7FFFFFFF
+#define	Z0											0x00000000	//zeros for reading
+#define	Z1											0x00000000
+#define	Z2											0x00000000
+#define	Z3											0x00000000
+#define	Z4											0x00000000
+#define	Z5											0x00000000
+#define	Z6											0x00000000
+#define	Z7											0x00000000
+#define	Z8											0x00000000
+#define	Z9											0x00000000
+#define	Z10											0x00000000
+#define	Z11											0x00000000
+#define	Z12											0x00000000
+#define	Z13											0x00000000
+#define	Z14											0x00000000
+#define	Z15											0x00000000
+#define	Z16											0x00000000
+#define	Z17											0x00000000
+#define	Z18											0x00000000
+#define	Z19											0x00000000
+#define	Z20											0x00000000
+#define	Z21											0x00000000
+#define	Z22											0x00000000
+#define	Z23											0x00000000
+#define	Z24											0x00000000
+#define	Z25											0x00000000
+#define	Z26											0x00000000
+#define	Z27											0x00000000
+#define	Z28											0x00000000
+#define	Z29											0x00000000
+#define	Z30											0x00000000
+#define	Z31											0x00000000
 
 #define STRINGIZE( arg )							#arg
 #define CONCATENATE( arg1, arg2 ) 					arg1##arg2
