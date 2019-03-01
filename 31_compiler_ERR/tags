@@ -4,13 +4,235 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-_loop	02_loop.asm	/^_loop:$/;"	l
-_loopDone	02_loop.asm	/^_loopDone:$/;"	l
-_print	01_branch.asm	/^_print:$/;"	l
-_printEq	01_branch.asm	/^_printEq:$/;"	l
-_printNe	01_branch.asm	/^_printNe:$/;"	l
-main	00_main.asm	/^main:	$/;"	l
-main	01_branch.asm	/^main:$/;"	l
-main	02_loop.asm	/^main:$/;"	l
-strEq	01_branch.asm	/^	strEq:	.asciiz "Equal!\\n"$/;"	l
-strNe	01_branch.asm	/^	strNe:	.asciiz "Not equal!\\n"$/;"	l
+A0	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+A1	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+A2	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+A3	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+AA	mucky.c	66;"	d	file:
+AE	mucky.c	59;"	d	file:
+AFP	mucky.c	37;"	d	file:
+AGP	mucky.c	39;"	d	file:
+ASP	mucky.c	38;"	d	file:
+AT	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+CHAR	mucky.c	41;"	d	file:
+DATABASE	mucky.c	25;"	d	file:
+DE	mucky.c	63;"	d	file:
+DO	mucky.c	35;"	d	file:
+ELSE	mucky.c	29;"	d	file:
+EQ	mucky.c	50;"	d	file:
+FOR	mucky.c	46;"	d	file:
+FP	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+FUNC	mucky.c	32;"	d	file:
+GE	mucky.c	52;"	d	file:
+GOTO	mucky.c	47;"	d	file:
+GP	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+IF	mucky.c	28;"	d	file:
+INT	mucky.c	27;"	d	file:
+K0	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+K1	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+LE	mucky.c	53;"	d	file:
+MAXINPUT	mucky.c	71;"	d	file:
+ME	mucky.c	61;"	d	file:
+MM	mucky.c	56;"	d	file:
+MULBY2	mucky.c	44;"	d	file:
+MULBY4	mucky.c	43;"	d	file:
+MYEOF	mucky.c	69;"	d	file:
+NE	mucky.c	51;"	d	file:
+NEG	mucky.c	67;"	d	file:
+NOS	mucky.c	209;"	d	file:
+NUM	mucky.c	34;"	d	file:
+OE	mucky.c	57;"	d	file:
+OO	mucky.c	65;"	d	file:
+PE	mucky.c	60;"	d	file:
+PP	mucky.c	55;"	d	file:
+RA	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+RE	mucky.c	64;"	d	file:
+RETURN	mucky.c	31;"	d	file:
+RETVAL	mucky.c	42;"	d	file:
+S0	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S1	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S2	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S3	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S4	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S5	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S6	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+S7	mucky.c	/^	S0,	S1,	S2,	S3,	S4,	S5,	S6,	S7,$/;"	e	enum:__anon1	file:
+SHORT	mucky.c	40;"	d	file:
+SL	mucky.c	54;"	d	file:
+SP	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+SR	mucky.c	68;"	d	file:
+STACKSIZE	mucky.c	83;"	d	file:
+STRING	mucky.c	45;"	d	file:
+T0	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T1	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T2	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T3	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T4	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T5	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T6	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T7	mucky.c	/^	T0,	T1,	T2,	T3,	T4,	T5,	T6,	T7,$/;"	e	enum:__anon1	file:
+T8	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+T9	mucky.c	/^	T8,	T9,	K0,	K1,	GP,	SP,	FP,	RA$/;"	e	enum:__anon1	file:
+TARGET	mucky.c	48;"	d	file:
+TE	mucky.c	62;"	d	file:
+TMP	mucky.c	210;"	d	file:
+TOS	mucky.c	208;"	d	file:
+V0	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+V1	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+VAR	mucky.c	36;"	d	file:
+WHILE	mucky.c	30;"	d	file:
+WORD	mucky.c	33;"	d	file:
+XE	mucky.c	58;"	d	file:
+ZERO	mucky.c	/^	ZERO,	AT,	V0,	V1,	A0,	A1,	A2,	A3,$/;"	e	enum:__anon1	file:
+_0	cASM.asm	/^_0:$/;"	l
+_1	cASM.asm	/^_1:$/;"	l
+_exit	cASM.asm	/^_exit:$/;"	l
+_loop	mipsASM/02_loop.asm	/^_loop:$/;"	l
+_loopDone	mipsASM/02_loop.asm	/^_loopDone:$/;"	l
+_main	cASM.asm	/^_main:$/;"	l
+_print	mipsASM/01_branch.asm	/^_print:$/;"	l
+_printEq	mipsASM/01_branch.asm	/^_printEq:$/;"	l
+_printNe	mipsASM/01_branch.asm	/^_printNe:$/;"	l
+_print_int	cASM.asm	/^_print_int:$/;"	l
+_print_string	cASM.asm	/^_print_string:$/;"	l
+add	mucky.c	/^add(void)$/;"	f
+and	mucky.c	/^and(void)$/;"	f
+andand	mucky.c	/^andand(void)$/;"	f
+assign	mucky.c	/^assign(void)$/;"	f
+assume	mucky.c	/^assume(register int t)$/;"	f
+beginlab	mucky.c	/^int	beginlab, endlab;	\/* for function begin\/end code *\/$/;"	v
+call	mucky.c	/^call(register int mysym)$/;"	f
+calleereg	mucky.c	/^int	callerreg, calleereg;$/;"	v
+callerreg	mucky.c	/^int	callerreg, calleereg;$/;"	v
+cond	mucky.c	/^cond(void)$/;"	f
+ctype	mucky.c	/^ctype(void)$/;"	f
+decl	mucky.c	/^decl(void)$/;"	f
+decsp	mucky.c	/^decsp(void)$/;"	f
+def	mucky.c	/^def(register int mysym)$/;"	f
+defstr	mucky.c	/^defstr(register int spos)$/;"	f
+endlab	mucky.c	/^int	beginlab, endlab;	\/* for function begin\/end code *\/$/;"	v
+eof	mucky.c	/^int	eof;$/;"	v
+eqne	mucky.c	/^eqne(void)$/;"	f
+error	mucky.c	/^int error(fmt, a, b, c)$/;"	f
+expr	mucky.c	/^expr(void)$/;"	f
+fpoffset	mucky.c	/^int	gpoffset, fpoffset;	\/* for globals\/locals *\/$/;"	v
+funcbegin	mucky.c	/^funcbegin(register int mysym)$/;"	f
+funcend	mucky.c	/^funcend(register int mysym)$/;"	f
+ghoto	mucky.c	/^ghoto(register char *s)$/;"	f
+gpoffset	mucky.c	/^int	gpoffset, fpoffset;	\/* for globals\/locals *\/$/;"	v
+haveinput	mucky.c	/^int	haveinput = 0;$/;"	v
+highwater	mucky.c	/^int	highwater = 0;$/;"	v
+incsp	mucky.c	/^incsp(void)$/;"	f
+input	mucky.c	/^char	input[MAXINPUT];$/;"	v
+ipos	mucky.c	/^int	ipos;$/;"	v
+isleaf	mucky.c	/^int	isleaf;			\/* is this a leaf procedure? *\/$/;"	v
+isnamechar	mucky.c	/^isnamechar(register int t)$/;"	f
+jump	mucky.c	/^jump(register int a)$/;"	f
+jumpf	mucky.c	/^jumpf(register int a)$/;"	f
+jumpt	mucky.c	/^jumpt(register int a)$/;"	f
+label	mucky.c	/^label(register int a)$/;"	f
+labnum	mucky.c	/^int	labnum = 0;	\/* next compiler-generated label *\/$/;"	v
+leltgegt	mucky.c	/^leltgegt(void)$/;"	f
+lex	mucky.c	/^lex(void)$/;"	f
+lexhelp	mucky.c	/^lexhelp(void)$/;"	f
+lexnum	mucky.c	/^int	lexnum;		\/* lexical number value *\/$/;"	v
+lexstr	mucky.c	/^int	lexstr;		\/* lexical string ipos *\/$/;"	v
+lexsym	mucky.c	/^int	lexsym;$/;"	v
+lineno	mucky.c	/^int	lineno = 1;	\/* current line number *\/$/;"	v
+linestart	mucky.c	/^int	linestart = 0;		\/* start of current line *\/$/;"	v
+loadnos	mucky.c	/^loadnos(void)$/;"	f
+loadnostos	mucky.c	/^loadnostos(void)$/;"	f
+loadtos	mucky.c	/^loadtos(void)$/;"	f
+lval	mucky.c	/^lval(register int size)$/;"	f
+main	00_main.c	/^int main()$/;"	f
+main	cASM.asm	/^main:$/;"	l
+main	mipsASM/00_main.asm	/^main:	$/;"	l
+main	mipsASM/01_branch.asm	/^main:$/;"	l
+main	mipsASM/02_loop.asm	/^main:$/;"	l
+main	mucky.c	/^main(int argc, char **argv)$/;"	f
+match	mucky.c	/^match(register int t)$/;"	f
+memaddr	mucky.c	/^memaddr(register int mysym)$/;"	f
+mips_3reg	mucky.c	/^mips_3reg(register int rd,$/;"	f
+mips_addi	mucky.c	/^mips_addi(register int rt,$/;"	f
+mips_addu	mucky.c	/^mips_addu(register int rd,$/;"	f
+mips_and	mucky.c	/^mips_and(register int rd,$/;"	f
+mips_beq	mucky.c	/^mips_beq(register int rt,$/;"	f
+mips_bne	mucky.c	/^mips_bne(register int rt,$/;"	f
+mips_data	mucky.c	/^mips_data(int n)$/;"	f
+mips_globl	mucky.c	/^mips_globl(register char *s)$/;"	f
+mips_globl_	mucky.c	/^mips_globl_(register char *s)$/;"	f
+mips_immed	mucky.c	/^mips_immed(register int rt,$/;"	f
+mips_j	mucky.c	/^mips_j(register char *s)$/;"	f
+mips_j_	mucky.c	/^mips_j_(register int n)$/;"	f
+mips_jal_	mucky.c	/^mips_jal_(register char *s)$/;"	f
+mips_jr	mucky.c	/^mips_jr(register int r)$/;"	f
+mips_label	mucky.c	/^mips_label(register char *s)$/;"	f
+mips_label_	mucky.c	/^mips_label_(register int n)$/;"	f
+mips_lb	mucky.c	/^mips_lb(register int rt,$/;"	f
+mips_lh	mucky.c	/^mips_lh(register int rt,$/;"	f
+mips_ls	mucky.c	/^mips_ls(register int rt,$/;"	f
+mips_lui	mucky.c	/^mips_lui(register int rt,$/;"	f
+mips_lw	mucky.c	/^mips_lw(register int rt,$/;"	f
+mips_offset	mucky.c	/^mips_offset(register int rt,$/;"	f
+mips_or	mucky.c	/^mips_or(register int rd,$/;"	f
+mips_ori	mucky.c	/^mips_ori(register int rt,$/;"	f
+mips_prelabel	mucky.c	/^mips_prelabel(register char *s)$/;"	f
+mips_sb	mucky.c	/^mips_sb(register int rt,$/;"	f
+mips_sh	mucky.c	/^mips_sh(register int rt,$/;"	f
+mips_sllv	mucky.c	/^mips_sllv(register int rd,$/;"	f
+mips_slt	mucky.c	/^mips_slt(register int rd,$/;"	f
+mips_sltu	mucky.c	/^mips_sltu(register int rd,$/;"	f
+mips_space	mucky.c	/^mips_space(register int n)$/;"	f
+mips_srav	mucky.c	/^mips_srav(register int rd,$/;"	f
+mips_subu	mucky.c	/^mips_subu(register int rd,$/;"	f
+mips_sw	mucky.c	/^mips_sw(register int rt,$/;"	f
+mips_syscall	mucky.c	/^mips_syscall(void)$/;"	f
+mips_text	mucky.c	/^mips_text(void)$/;"	f
+mips_xor	mucky.c	/^mips_xor(register int rd,$/;"	f
+mips_xori	mucky.c	/^mips_xori(register int rt,$/;"	f
+mul	mucky.c	/^mul(void)$/;"	f
+myname	mucky.c	/^char	*myname;	\/* name of this command *\/$/;"	v
+nameis	mucky.c	/^nameis(register char *p)$/;"	f
+namestring	mucky.c	/^namestring(register int ipos)$/;"	f
+newsym	mucky.c	/^newsym(void)$/;"	f
+nextt	mucky.c	/^int	nextt;		\/* next token *\/$/;"	v
+objsize	mucky.c	/^int	objsize[STACKSIZE];$/;"	v
+or	mucky.c	/^or(void)$/;"	f
+oror	mucky.c	/^oror(void)$/;"	f
+pr	mucky.c	/^pr(register char *s,$/;"	f
+prchar	mucky.c	/^prchar(register int c)$/;"	f
+prcomma	mucky.c	/^prcomma(void)$/;"	f
+prefixis	mucky.c	/^prefixis(register char *p)$/;"	f
+prelab	mucky.c	/^char	*prelab = "L";$/;"	v
+primmed	mucky.c	/^primmed(register int r)$/;"	f
+prnewline	mucky.c	/^prnewline(void)$/;"	f
+prnum	mucky.c	/^prnum(register int n)$/;"	f
+prop	mucky.c	165;"	d	file:
+prrd	mucky.c	/^prrd(register int r)$/;"	f
+prreg	mucky.c	/^prreg(register int r)$/;"	f
+prrs	mucky.c	/^prrs(register int r)$/;"	f
+prrt	mucky.c	/^prrt(register int r)$/;"	f
+prstr	mucky.c	164;"	d	file:
+prtab	mucky.c	/^prtab(void)$/;"	f
+pusharg	mucky.c	/^pusharg(register int argno)$/;"	f
+pushdup	mucky.c	/^pushdup(void)$/;"	f
+pushfpoff	mucky.c	/^pushfpoff(register int off)$/;"	f
+pushgpoff	mucky.c	/^pushgpoff(register int off)$/;"	f
+pushnum	mucky.c	/^pushnum(register int n)$/;"	f
+pushop	mucky.c	/^pushop(register int op)$/;"	f
+regname	mucky.c	/^char	*regname[32] = {$/;"	v
+scope	mucky.c	/^int	scope = 0;$/;"	v
+setarg	mucky.c	/^setarg(register int argno)$/;"	f
+slsr	mucky.c	/^slsr(void)$/;"	f
+sp	mucky.c	/^int	sp = 0;$/;"	v
+startup	mucky.c	/^startup(void)$/;"	f
+stat	mucky.c	/^stat(void)$/;"	f
+store	mucky.c	/^store(register int prop)$/;"	f
+strEq	mipsASM/01_branch.asm	/^	strEq:	.asciiz "Equal!\\n"$/;"	l
+strNe	mipsASM/01_branch.asm	/^	strNe:	.asciiz "Not equal!\\n"$/;"	l
+sym	mucky.c	89;"	d	file:
+symsp	mucky.c	/^int	symsp = 0;$/;"	v
+target	mucky.c	/^target(register char *s)$/;"	f
+unary	mucky.c	/^unary(void)$/;"	f
+warn	mucky.c	/^int warn(fmt, a, b, c)$/;"	f
+xor	mucky.c	/^xor(void)$/;"	f

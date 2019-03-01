@@ -2032,32 +2032,31 @@ moredecls:
 }
 
 int
-main(int arc, char **argv)
+main(int argc, char **argv)
 {
 	int c;
- //FILE * pFile;
-  //long lSize;
-  //char * buffer;
-  //size_t result;
-
-  //pFile = fopen ( "myfile.bin" , "rb" );
-  //if (pFile==NULL) {fputs ("File error",stderr); exit (1);}
-
-  //// obtain file size:
-  //fseek (pFile , 0 , SEEK_END);
-  //lSize = ftell (pFile);
-  //rewind (pFile);
-
-  //// allocate memory to contain the whole file:
-  //buffer = (char*) malloc (sizeof(char)*lSize);
-  //if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
-
-  //// copy the file into the buffer:
-  //result = fread (buffer,1,lSize,pFile);
-  //if (result != lSize) {fputs ("Reading error",stderr); exit (3);}
-
+	FILE * pFile;
+	long lSize;
+	char * buffer;
+	size_t result;
+	
 	eof = 0;
-	while ((c = getchar()) != EOF) input[eof++] = c;
+	if ( argc == 0x2 )
+	{	pFile = fopen ( argv[argc - 1], "r" );
+		if (pFile==NULL) {fputs ("File error",stderr); exit (1);}
+		// obtain file size:
+		fseek (pFile , 0 , SEEK_END);
+		lSize = ftell (pFile);
+		rewind (pFile);
+
+		// copy the file into the buffer:
+		result = fread (input,1,lSize,pFile);
+		if (result != lSize) {fputs ("Reading error",stderr); exit (3);}
+		eof = lSize;
+	} else
+	{	while ((c = getchar()) != EOF) input[eof++] = c;
+	};
+
 	input[eof] = 0;
 	ipos = 0;
 	nextt = lex();
