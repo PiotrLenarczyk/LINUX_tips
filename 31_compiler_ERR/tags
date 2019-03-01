@@ -4,10 +4,13 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+_loop	02_loop.asm	/^_loop:$/;"	l
+_loopDone	02_loop.asm	/^_loopDone:$/;"	l
 _print	01_branch.asm	/^_print:$/;"	l
 _printEq	01_branch.asm	/^_printEq:$/;"	l
 _printNe	01_branch.asm	/^_printNe:$/;"	l
 main	00_main.asm	/^main:	$/;"	l
 main	01_branch.asm	/^main:$/;"	l
+main	02_loop.asm	/^main:$/;"	l
 strEq	01_branch.asm	/^	strEq:	.asciiz "Equal!\\n"$/;"	l
 strNe	01_branch.asm	/^	strNe:	.asciiz "Not equal!\\n"$/;"	l
