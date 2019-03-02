@@ -24,6 +24,14 @@ _0:
 	ori	$t1,$0,5
 	sw	$t1,0($t0)
 	or	$t0,$t1,$0
+	addi	$t0,$fp,-8
+	or	$t1,$t0,$0
+	lw	$t0,0($t0)
+	or	$t2,$t1,$0
+	ori	$t3,$0,1
+	lw	$t2,0($t2)
+	addu	$t2,$t2,$t3
+	sw	$t2,0($t1)
 	ori	$t0,$0,0
 	or	$v0,$t0,$0
 _1:
