@@ -24,58 +24,58 @@ int	linestart = 0;		/* start of current line */
 
 #define	DATABASE	0x10000000
 
-#define	INT	'a'
-#define	IF	'b'
-#define	ELSE	'c'
-#define	WHILE	'd'
-#define	RETURN	'e'
-#define	FUNC	'f'
-#define	WORD	'g'
-#define	NUM	'h'
-#define	DO	'i'
-#define	VAR	'j'
-#define	AFP	'k'
-#define	ASP	'l'
-#define	AGP	'm'
-#define	SHORT	'n'
-#define	CHAR	'o'
-#define RETVAL	'p'
-#define	MULBY4	'q'
-#define	MULBY2	'r'
-#define	STRING	's'
-#define	FOR	't'
-#define	GOTO	'u'
-#define	TARGET	'v'
+#define	INT			'a'
+#define	IF			'b'
+#define	ELSE		'c'
+#define	WHILE		'd'
+#define	RETURN		'e'
+#define	FUNC		'f'
+#define	WORD		'g'
+#define	NUM			'h'
+#define	DO			'i'
+#define	VAR			'j'
+#define	AFP			'k'
+#define	ASP			'l'
+#define	AGP			'm'
+#define	SHORT		'n'
+#define	CHAR		'o'
+#define RETVAL		'p'
+#define	MULBY4		'q'
+#define	MULBY2		'r'
+#define	STRING		's'
+#define	FOR			't'
+#define	GOTO		'u'
+#define	TARGET		'v'
 
-#define	EQ	'A'
-#define	NE	'B'
-#define	GE	'C'
-#define	LE	'D'
-#define	SL	'E'
-#define	PP	'F'
-#define	MM	'G'
-#define	OE	'H'
-#define	XE	'I'
-#define	AE	'J'
-#define	PE	'K'
-#define	ME	'L'
-#define	TE	'M'
-#define	DE	'N'
-#define	RE	'O'
-#define	OO	'P'
-#define	AA	'Q'
-#define	NEG	'R'
-#define	SR	'S'
-#define	MYEOF	'Z'
+#define	EQ			'A' /**/
+#define	NE			'B' /**/
+#define	GE			'C' /**/
+#define	LE			'D'	/**/
+#define	SL			'E'	/**/
+#define	PP			'F'	/**/
+#define	MM			'G' /**/
+#define	OE			'H'	/**/
+#define	XE			'I'	/**/
+#define	AE			'J'	/**/
+#define	PE			'K'	/**/
+#define	ME			'L'	/**/
+#define	TE			'M'	/**/
+#define	DE			'N'	/**/
+#define	RE			'O'	/**/
+#define	OO			'P'	/**/
+#define	AA			'Q'	/**/
+#define	NEG			'R'	/**/
+#define	SR			'S'	/**/
+#define	MYEOF		'Z'	/**/
 
 #define	MAXINPUT	(1024*1024)
-char	input[MAXINPUT];
-int	eof;
-int	ipos;
+char				input[MAXINPUT];
+int					eof;
+int					ipos;
 
-char	*myname;	/* name of this command */
+char				*myname;	/* name of this command */
 
-int	nextt;		/* next token */
+int					nextTok;		/* next token */
 int	lexnum;		/* lexical number value */
 int	lexstr;		/* lexical string ipos */
 int	lineno = 1;	/* current line number */
@@ -112,30 +112,27 @@ isnamechar(register int t)
 
 char *
 namestring(register int ipos)
-{
-	static char name[256];
+{	static char name[256];
 	register int i = 0;
 
 	while (isnamechar(name[i] = input[ipos+i])) ++i;
 	name[i] = 0;
 	return(&(name[0]));
-}
+};
 
 int warn(fmt, a, b, c)
 char *fmt;
 int a, b, c;
-{
-	fprintf(stderr, "#line %d: ", lineno);
+{	fprintf(stderr, "#line %d: ", lineno);
 	fprintf(stderr, fmt, a, b, c);
 	fprintf(stderr, "\n");
 	return 0;
-}
+};
 
 int error(fmt, a, b, c)
 char *fmt;
 int a, b, c;
-{
-	warn(fmt, a, b, c);
+{	warn(fmt, a, b, c);
 	fprintf(stderr,
 "#compilation terminated on this error\n"
 "</PRE>\n"
@@ -143,23 +140,21 @@ int a, b, c;
 		);
 	exit(0);
 	return 0;
-}
+};
 
 
 /*	Code generation stuff
 */
 
 void
-incsp(void)
-{
-	++sp;
-}
+incsp(void)	/*increment stack pointer*/
+{	++sp;
+};
 
 void
-decsp(void)
-{
-	--sp;
-}
+decsp(void) /*decrement stack pointer*/
+{	--sp;
+};
 
 #define	prstr(s)	pr(s, (sizeof(s)-1))
 #define	prop(s)		{ prtab(); prstr(s); prtab(); }
@@ -1342,14 +1337,14 @@ again:
 int
 lex(void)
 {
-	nextt = lexhelp();
-	return(nextt);
+	nextTok = lexhelp();
+	return(nextTok);
 }
 
 int
 match(register int t)
 {
-	if (nextt == t) {
+	if (nextTok == t) {
 		lex();
 		return(1);
 	}
@@ -1407,7 +1402,7 @@ unary(void)
 	register int mysym;
 	register int args = 0;
 
-	switch (nextt) {
+	switch (nextTok) {
 	case PP:
 		lex();
 		unary();
@@ -1480,7 +1475,7 @@ unary(void)
 	}
 
 	/* Suffix operation */
-	switch (nextt) {
+	switch (nextTok) {
 	case PP:
 		lex();
 		pushdup();
@@ -1509,11 +1504,11 @@ mul(void)
 
 	unary();
 	for (;;) {
-		switch (nextt) {
+		switch (nextTok) {
 		case '*':
 		case '/':
 		case '%':
-			t = nextt;
+			t = nextTok;
 			lex();
 			unary();
 			pushop(t);
@@ -1530,10 +1525,10 @@ add(void)
 
 	mul();
 	for (;;) {
-		switch (nextt) {
+		switch (nextTok) {
 		case '+':
 		case '-':
-			t = nextt;
+			t = nextTok;
 			lex();
 			mul();
 			pushop(t);
@@ -1550,10 +1545,10 @@ slsr(void)
 
 	add();
 	for (;;) {
-		switch (nextt) {
+		switch (nextTok) {
 		case SL:
 		case SR:
-			t = nextt;
+			t = nextTok;
 			lex();
 			add();
 			pushop(t);
@@ -1570,12 +1565,12 @@ leltgegt(void)
 
 	slsr();
 	for (;;) {
-		switch (nextt) {
+		switch (nextTok) {
 		case LE:
 		case '<':
 		case GE:
 		case '>':
-			t = nextt;
+			t = nextTok;
 			lex();
 			slsr();
 			pushop(t);
@@ -1592,10 +1587,10 @@ eqne(void)
 
 	leltgegt();
 	for (;;) {
-		switch (nextt) {
+		switch (nextTok) {
 		case EQ:
 		case NE:
-			t = nextt;
+			t = nextTok;
 			lex();
 			leltgegt();
 			pushop(t);
@@ -1716,7 +1711,7 @@ assign(void)
 	register int t;
 
 	cond();
-	switch (nextt) {
+	switch (nextTok) {
 	case '=':
 		lex();
 		assign();
@@ -1797,7 +1792,7 @@ newsym(void)
 	/* Create a new symbol table entry */
 	register int mysym;
 
-	switch (nextt) {
+	switch (nextTok) {
 	case WORD:
 		mysym = lexsym;
 		break;
@@ -1824,7 +1819,7 @@ stat(void)
 	register int lab;
 	register int mysym;
 
-	switch (nextt) {
+	switch (nextTok) {
 	case '{':
 		lex();
 		scopesymsp = symsp;
@@ -1845,7 +1840,7 @@ stat(void)
 		labnum += 2;
 		jumpf(lab);
 		stat();
-		if (nextt == ELSE) {
+		if (nextTok == ELSE) {
 			lex();
 			jump(lab+1);
 			label(lab);
@@ -1909,7 +1904,7 @@ stat(void)
 		break;
 	case RETURN:
 		lex();
-		if (nextt != ';') {
+		if (nextTok != ';') {
 			expr();
 			pushop(RETVAL);
 		}
@@ -1940,7 +1935,7 @@ stat(void)
 int
 ctype(void)
 {
-	switch (nextt) {
+	switch (nextTok) {
 	case INT:	lex(); return(4);
 	case SHORT:	lex(); return(2);
 	case CHAR:	lex(); return(1);
@@ -1964,11 +1959,11 @@ moredecls:
 		mysym = newsym();
 		symtab[mysym].size = size;
 
-		switch (nextt) {
+		switch (nextTok) {
 		case '[':
 			lex();
 			symtab[mysym].type = VAR;
-			if (nextt != NUM) {
+			if (nextTok != NUM) {
 				error("non-constant dim for %s",
 				      namestring(symtab[mysym].ipos));
 			}
@@ -2059,7 +2054,7 @@ main(int argc, char **argv)
 
 	input[eof] = 0;
 	ipos = 0;
-	nextt = lex();
+	nextTok = lex();
 	startup();
 	decl();
 }
