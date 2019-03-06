@@ -9,18 +9,18 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int	haveinput = 0;
+int					haveinput = 0;
 
-char	*prelab = "L";
-int	callerreg, calleereg;
-int	scope = 0;
-int	labnum = 0;	/* next compiler-generated label */
-int	lexsym;
+char				*prelab = "L";
+int					callerreg, calleereg;
+int					scope = 0;
+int					labelNum = 0;		/* next compiler-generated label */
+int					lexsym;
 
-int	beginlab, endlab;	/* for function begin/end code */
-int	gpoffset, fpoffset;	/* for globals/locals */
-int	isleaf;			/* is this a leaf procedure? */
-int	linestart = 0;		/* start of current line */
+int					beginlab, endlab;	/* for function begin/end code */
+int					gpoffset, fpoffset;	/* for globals/locals */
+int					isleaf;				/* is this a leaf procedure? */
+int					linestart = 0;		/* start of current line */
 
 #define	DATABASE	0x10000000
 
@@ -75,16 +75,16 @@ int					ipos;
 
 char				*myname;	/* name of this command */
 
-int					nextTok;		/* next token */
-int	lexnum;		/* lexical number value */
-int	lexstr;		/* lexical string ipos */
-int	lineno = 1;	/* current line number */
+int					nextToken;	/* next token */
+int					lexnum;		/* lexical number value */
+int					lexstr;		/* lexical string ipos */
+int					lineno = 1;	/* current line number */
 
-#define	STACKSIZE	64
-int	objsize[STACKSIZE];
-int	sp = 0;
+#define				STACKSIZE	64
+int					objsize[STACKSIZE];
+int					sp = 0;		/*stack pointer*/
 
-int	highwater = 0;
+int					highwater = 0;
 
 #define	sym	struct _sym
 sym {
@@ -102,7 +102,7 @@ void	decl(void);
 
 
 int
-isnamechar(register int t)
+isNameChar(register int t)
 {
 	return(((t >= '0') && (t <= '9')) ||
 	       ((t >= 'A') && (t <= 'Z')) ||
@@ -111,11 +111,11 @@ isnamechar(register int t)
 }
 
 char *
-namestring(register int ipos)
+nameString(register int ipos)
 {	static char name[256];
 	register int i = 0;
 
-	while (isnamechar(name[i] = input[ipos+i])) ++i;
+	while (isNameChar(name[i] = input[ipos+i])) ++i;
 	name[i] = 0;
 	return(&(name[0]));
 };
@@ -147,48 +147,48 @@ int a, b, c;
 */
 
 void
-incsp(void)	/*increment stack pointer*/
+incSp(void)	/*increment stack pointer*/
 {	++sp;
 };
 
 void
-decsp(void) /*decrement stack pointer*/
+decSp(void) /*decrement stack pointer*/
 {	--sp;
 };
 
-#define	prstr(s)	pr(s, (sizeof(s)-1))
-#define	prop(s)		{ prtab(); prstr(s); prtab(); }
+#define	printStr(s)	print(s, (sizeof(s)-1))
+#define	printOperand(s)		{ printTab(); printStr(s); printTab(); }
 
 void
-prchar(register int c)
+printChar(register int c)
 {
 	putchar(c);
 }
 
 void
-prtab(void)
+printTab(void)
 {
-	prchar('\t');
+	printChar('\t');
 }
 
 void
-prcomma(void)
+printComma(void)
 {
-	prchar(',');
+	printChar(',');
 }
 
 void
-prnewline(void)
+printNewLine(void)
 {
-	prchar('\n');
+	printChar('\n');
 }
 
 void
-pr(register char *s,
+print(register char *s,
 register int len)
 {
 	while (--len >= 0) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
 }
@@ -212,33 +212,33 @@ char	*regname[32] = {
 };
 
 void
-prreg(register int r)
+printReg(register int r)
 {
 	register char *s = regname[r];
 
-	prchar('$');
+	printChar('$');
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
 }
 
 void
-prrt(register int r)
+print_rt(register int r)	/*print temporary register*/
 {
-	prreg(r);
+	printReg(r);
 }
 
 void
-prrs(register int r)
+print_rs(register int r)	/*print source register*/
 {
-	prreg(r);
+	printReg(r);
 }
 
 void
-prrd(register int r)
+print_rd(register int r)	/*print destination register*/
 {
-	prreg(r);
+	printReg(r);
 }
 
 void
@@ -258,25 +258,25 @@ mips_immed(register int rt,
 register int rs,
 register int immed)
 {
-	prrt(rt);
-	prcomma();
-	prrs(rs);
-	prcomma();
+	print_rt(rt);
+	printComma();
+	print_rs(rs);
+	printComma();
 	primmed(immed);
-	prnewline();
+	printNewLine();
 }
 void
 mips_offset(register int rt,
 register int rs,
 register int immed)
 {
-	prrt(rt);
-	prcomma();
-	prrs(rs);
-	prcomma();
-	prchar('_');
+	print_rt(rt);
+	printComma();
+	print_rs(rs);
+	printComma();
+	printChar('_');
 	prnum(immed);
-	prnewline();
+	printNewLine();
 }
 
 void
@@ -284,12 +284,12 @@ mips_3reg(register int rd,
 register int rs,
 register int rt)
 {
-	prrt(rd);
-	prcomma();
-	prrs(rs);
-	prcomma();
-	prrs(rt);
-	prnewline();
+	print_rt(rd);
+	printComma();
+	print_rs(rs);
+	printComma();
+	print_rs(rt);
+	printNewLine();
 }
 
 void
@@ -297,24 +297,24 @@ mips_ls(register int rt,
 register int immed,
 register int rs)
 {
-	prrt(rt);
-	prcomma();
+	print_rt(rt);
+	printComma();
 	primmed(immed);
-	prchar('(');
-	prrs(rs);
-	prchar(')');
-	prnewline();
+	printChar('(');
+	print_rs(rs);
+	printChar(')');
+	printNewLine();
 }
 
 void
 mips_lui(register int rt,
 register int immed)
 {
-	prop("lui");
-	prrs(rt);
-	prcomma();
+	printOperand("lui");
+	print_rs(rt);
+	printComma();
 	primmed(immed);
-	prnewline();
+	printNewLine();
 }
 
 void
@@ -322,7 +322,7 @@ mips_addi(register int rt,
 register int rs,
 register int immed)
 {
-	prop("addi");
+	printOperand("addi");
 	mips_immed(rt, rs, immed);
 }
 
@@ -331,7 +331,7 @@ mips_ori(register int rt,
 register int rs,
 register int immed)
 {
-	prop("ori");
+	printOperand("ori");
 	mips_immed(rt, rs, immed);
 }
 
@@ -340,7 +340,7 @@ mips_xori(register int rt,
 register int rs,
 register int immed)
 {
-	prop("xori");
+	printOperand("xori");
 	mips_immed(rt, rs, immed);
 }
 
@@ -349,7 +349,7 @@ mips_beq(register int rt,
 register int rs,
 register int immed)
 {
-	prop("beq");
+	printOperand("beq");
 	mips_offset(rt, rs, immed);
 }
 
@@ -358,24 +358,24 @@ mips_bne(register int rt,
 register int rs,
 register int immed)
 {
-	prop("bne");
+	printOperand("bne");
 	mips_offset(rt, rs, immed);
 }
 
 void
 mips_jr(register int r)
 {
-	prop("jr");
-	prreg(r);
-	prnewline();
+	printOperand("jr");
+	printReg(r);
+	printNewLine();
 }
 
 void
 mips_space(register int n)
 {
-	prstr("\t.space\t");
+	printStr("\t.space\t");
 	prnum(n);
-	prnewline();
+	printNewLine();
 }
 
 void
@@ -383,7 +383,7 @@ mips_or(register int rd,
 register int rs,
 register int rt)
 {
-	prop("or");
+	printOperand("or");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -392,7 +392,7 @@ mips_xor(register int rd,
 register int rs,
 register int rt)
 {
-	prop("xor");
+	printOperand("xor");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -401,7 +401,7 @@ mips_and(register int rd,
 register int rs,
 register int rt)
 {
-	prop("and");
+	printOperand("and");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -410,7 +410,7 @@ mips_addu(register int rd,
 register int rs,
 register int rt)
 {
-	prop("addu");
+	printOperand("addu");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -419,7 +419,7 @@ mips_subu(register int rd,
 register int rs,
 register int rt)
 {
-	prop("subu");
+	printOperand("subu");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -428,7 +428,7 @@ mips_slt(register int rd,
 register int rs,
 register int rt)
 {
-	prop("slt");
+	printOperand("slt");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -437,7 +437,7 @@ mips_sltu(register int rd,
 register int rs,
 register int rt)
 {
-	prop("sltu");
+	printOperand("sltu");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -446,7 +446,7 @@ mips_sllv(register int rd,
 register int rs,
 register int rt)
 {
-	prop("sllv");
+	printOperand("sllv");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -455,7 +455,7 @@ mips_srav(register int rd,
 register int rs,
 register int rt)
 {
-	prop("srav");
+	printOperand("srav");
 	mips_3reg(rd, rs, rt);
 }
 
@@ -464,7 +464,7 @@ mips_sw(register int rt,
 register int immed,
 register int rs)
 {
-	prop("sw");
+	printOperand("sw");
 	mips_ls(rt, immed, rs);
 }
 
@@ -473,7 +473,7 @@ mips_sh(register int rt,
 register int immed,
 register int rs)
 {
-	prop("sh");
+	printOperand("sh");
 	mips_ls(rt, immed, rs);
 }
 
@@ -482,7 +482,7 @@ mips_sb(register int rt,
 register int immed,
 register int rs)
 {
-	prop("sb");
+	printOperand("sb");
 	mips_ls(rt, immed, rs);
 }
 
@@ -491,7 +491,7 @@ mips_lw(register int rt,
 register int immed,
 register int rs)
 {
-	prop("lw");
+	printOperand("lw");
 	mips_ls(rt, immed, rs);
 }
 
@@ -500,7 +500,7 @@ mips_lh(register int rt,
 register int immed,
 register int rs)
 {
-	prop("lh");
+	printOperand("lh");
 	mips_ls(rt, immed, rs);
 }
 
@@ -509,117 +509,117 @@ mips_lb(register int rt,
 register int immed,
 register int rs)
 {
-	prop("lb");
+	printOperand("lb");
 	mips_ls(rt, immed, rs);
 }
 
 void
 mips_text(void)
 {
-	prstr("\t.text\n");
+	printStr("\t.text\n");
 }
 
 void
 mips_data(int n)
 {
-	prstr("\t.data\t");
+	printStr("\t.data\t");
 	prnum(n);
-	prchar('\n');
+	printChar('\n');
 }
 
 void
 mips_j(register char *s)
 {
-	prop("j");
+	printOperand("j");
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
-	prnewline();
+	printNewLine();
 }
 
 void
 mips_j_(register int n)
 {
-	prop("j");
-	prchar('_');
+	printOperand("j");
+	printChar('_');
 	prnum(n);
-	prnewline();
+	printNewLine();
 }
 
 void
 mips_jal_(register char *s)
 {
-	prop("jal");
-	prchar('_');
+	printOperand("jal");
+	printChar('_');
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
-	prnewline();
+	printNewLine();
 }
 
 void
 mips_syscall(void)
 {
-	prstr("\tsyscall\n");
+	printStr("\tsyscall\n");
 }
 
 void
 mips_globl(register char *s)
 {
-	prstr("\t.globl\t");
+	printStr("\t.globl\t");
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
-	prnewline();
+	printNewLine();
 }
 
 void
 mips_globl_(register char *s)
 {
-	prstr("\t.globl\t_");
+	printStr("\t.globl\t_");
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
-	prnewline();
+	printNewLine();
 }
 
 void
 mips_label(register char *s)
 {
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
-	prstr(":\n");
+	printStr(":\n");
 }
 
 void
 mips_label_(register int n)
 {
-	prchar('_');
+	printChar('_');
 	prnum(n);
-	prstr(":\n");
+	printStr(":\n");
 }
 
 void
 mips_prelabel(register char *s)
 {
-	prchar('_');
+	printChar('_');
 	while (*s) {
-		prchar(*s);
+		printChar(*s);
 		++s;
 	}
-	prstr(":\n");
+	printStr(":\n");
 }
 
 void
 pushnum(register int n)
 {
-	incsp();
+	incSp();
 
 	/* Try to optimize immediate handling...
 	   ori immediate doesn't sign extend,
@@ -642,7 +642,7 @@ pushnum(register int n)
 void
 pushgpoff(register int off)
 {
-	incsp();
+	incSp();
 	mips_addi(TOS, GP, off);
 	objsize[sp-1] = 0;
 }
@@ -650,7 +650,7 @@ pushgpoff(register int off)
 void
 pushfpoff(register int off)
 {
-	incsp();
+	incSp();
 	mips_addi(TOS, FP, off);
 	objsize[sp-1] = 0;
 }
@@ -658,7 +658,7 @@ pushfpoff(register int off)
 void
 pushdup(void)
 {
-	incsp();
+	incSp();
 	mips_or(TOS, NOS, 0);
 	objsize[sp-1] = objsize[sp-2];
 }
@@ -666,7 +666,7 @@ pushdup(void)
 void
 pusharg(register int argno)
 {
-	incsp();
+	incSp();
 	mips_or(TOS, (A0 + argno), 0);
 	objsize[sp-1] = 0;
 }
@@ -700,9 +700,9 @@ loadnostos(void)
 {
 	/* Need either NOS or TOS loaded from memory? */
 
-	decsp();
+	decSp();
 	loadtos();
-	incsp();
+	incSp();
 	loadtos();
 }
 
@@ -711,9 +711,9 @@ loadnos(void)
 {
 	/* Need NOS loaded from memory? */
 
-	decsp();
+	decSp();
 	loadtos();
-	incsp();
+	incSp();
 }
 
 void
@@ -721,7 +721,7 @@ setarg(register int argno)
 {
 	loadtos();
 	mips_or((A0 + argno), TOS, 0);
-	decsp();
+	decSp();
 }
 
 void
@@ -764,27 +764,27 @@ pushop(register int op)
 	case RETVAL:
 		loadtos();
 		mips_or(V0, TOS, 0);
-		decsp();
+		decSp();
 		break;
 	case '+':
 		loadnostos();
 		mips_addu(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case '-':
 		loadnostos();
 		mips_subu(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case SL:
 		loadnostos();
 		mips_sllv(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case SR:
 		loadnostos();
 		mips_srav(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case LE:
 		loadnostos();
@@ -793,12 +793,12 @@ pushop(register int op)
 		mips_or(TMP, NOS, TMP);		/* NE */
 		mips_xori(TMP, TMP, 1);		/* EQ */
 		mips_or(NOS, NOS, TMP);
-		decsp();
+		decSp();
 		break;
 	case '<':
 		loadnostos();
 		mips_slt(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case GE:
 		loadnostos();
@@ -807,40 +807,40 @@ pushop(register int op)
 		mips_or(TMP, NOS, TMP);		/* NE */
 		mips_xori(TMP, TMP, 1);		/* EQ */
 		mips_or(NOS, NOS, TMP);
-		decsp();
+		decSp();
 		break;
 	case '>':
 		loadnostos();
 		mips_slt(NOS, TOS, NOS);
-		decsp();
+		decSp();
 		break;
 	case EQ:
 		loadnostos();
 		mips_xor(NOS, NOS, TOS);	/* NE */
 		mips_sltu(NOS, 0, NOS);
 		mips_xori(TMP, TMP, 1);
-		decsp();
+		decSp();
 		break;
 	case NE:
 		loadnostos();
 		mips_xor(NOS, NOS, TOS);	/* NE */
 		mips_sltu(NOS, 0, NOS);
-		decsp();
+		decSp();
 		break;
 	case '&':
 		loadnostos();
 		mips_and(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case '^':
 		loadnostos();
 		mips_xor(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	case '|':
 		loadnostos();
 		mips_or(NOS, NOS, TOS);
-		decsp();
+		decSp();
 		break;
 	default:
 		error("cannot yet handle op (%c)", op);
@@ -869,11 +869,11 @@ store(register int prop)
 		   but I don't think we have to be that precise here
 		*/
 		mips_or(NOS, TOS, 0);
-		decsp();
+		decSp();
 		objsize[sp-1] = 0;
 	} else {
-		decsp();
-		decsp();
+		decSp();
+		decSp();
 	}
 }
 
@@ -892,7 +892,7 @@ jumpf(register int a)
 {
 	loadtos();
 	mips_beq(TOS, 0, a);
-	decsp();
+	decSp();
 }
 
 void
@@ -900,7 +900,7 @@ jumpt(register int a)
 {
 	loadtos();
 	mips_bne(TOS, 0, a);
-	decsp();
+	decSp();
 }
 
 void
@@ -948,7 +948,7 @@ startup(void)
 void
 call(register int mysym)
 {
-	register char *n = namestring(symtab[mysym].ipos);
+	register char *n = nameString(symtab[mysym].ipos);
 	register int i;
 
 	/* We're not a leaf procedure.... */
@@ -974,7 +974,7 @@ call(register int mysym)
 	}
 
 	/* Copy the return value to someplace useful */
-	incsp();
+	incSp();
 	mips_or(TOS, V0, 0);
 	objsize[sp-1] = 0;
 }
@@ -983,12 +983,12 @@ call(register int mysym)
 void
 funcbegin(register int mysym)
 {
-	register char *n = namestring(symtab[mysym].ipos);
+	register char *n = nameString(symtab[mysym].ipos);
 
 	fpoffset = -4;
 	highwater = 0;
-	beginlab = labnum++;
-	endlab = labnum++;
+	beginlab = labelNum++;
+	endlab = labelNum++;
 
 	/* For now, functions always return an int */
 	symtab[mysym].type = FUNC;
@@ -1010,7 +1010,7 @@ funcbegin(register int mysym)
 void
 funcend(register int mysym)
 {
-	register char *n = namestring(symtab[mysym].ipos);
+	register char *n = nameString(symtab[mysym].ipos);
 
 	/* For now, functions always return an int */
 	symtab[mysym].type = FUNC;
@@ -1059,7 +1059,7 @@ funcend(register int mysym)
 void
 def(register int mysym)
 {
-	register char *n = namestring(symtab[mysym].ipos);
+	register char *n = nameString(symtab[mysym].ipos);
 	register int asize;
 
 	/* Objects always are 4-byte word alligned... */
@@ -1099,13 +1099,13 @@ defstr(register int spos)
 	while (input[++spos] != '"') {
 		if (++asize > 1) {
 			if ((asize & 7) == 1) {
-				prnewline();
-				prstr("\t.byte\t");
+				printNewLine();
+				printStr("\t.byte\t");
 			} else {
-				prstr(", ");
+				printStr(", ");
 			}
 		} else {
-			prstr("\t.byte\t");
+			printStr("\t.byte\t");
 		}
 		if (input[spos] == '\\') {
 			switch (input[++spos]) {
@@ -1176,8 +1176,8 @@ nameis(register char *p)
 	for (;;) {
 		register int t = p[i];
 
-		if (!isnamechar(t)) {
-			if (!isnamechar(input[ipos + i])) {
+		if (!isNameChar(t)) {
+			if (!isNameChar(input[ipos + i])) {
 				ipos += i;
 				return(1);
 			} else {
@@ -1298,7 +1298,7 @@ again:
 		++ipos;
 		return(STRING);
 	default:
-		if (!isnamechar(input[ipos])) {
+		if (!isNameChar(input[ipos])) {
 			error("illegal character 0x%02x (%c)",
 			      input[ipos],
 			      input[ipos]);
@@ -1337,14 +1337,14 @@ again:
 int
 lex(void)
 {
-	nextTok = lexhelp();
-	return(nextTok);
+	nextToken = lexhelp();
+	return(nextToken);
 }
 
 int
 match(register int t)
 {
-	if (nextTok == t) {
+	if (nextToken == t) {
 		lex();
 		return(1);
 	}
@@ -1402,7 +1402,7 @@ unary(void)
 	register int mysym;
 	register int args = 0;
 
-	switch (nextTok) {
+	switch (nextToken) {
 	case PP:
 		lex();
 		unary();
@@ -1452,7 +1452,7 @@ unary(void)
 		lex();
 		if (!match('(')) {
 			error("undefined variable %s",
-			      namestring(symtab[mysym].ipos));
+			      nameString(symtab[mysym].ipos));
 		}
 		args = 0;
 		while (!match(')')) {
@@ -1475,7 +1475,7 @@ unary(void)
 	}
 
 	/* Suffix operation */
-	switch (nextTok) {
+	switch (nextToken) {
 	case PP:
 		lex();
 		pushdup();
@@ -1504,11 +1504,11 @@ mul(void)
 
 	unary();
 	for (;;) {
-		switch (nextTok) {
+		switch (nextToken) {
 		case '*':
 		case '/':
 		case '%':
-			t = nextTok;
+			t = nextToken;
 			lex();
 			unary();
 			pushop(t);
@@ -1525,10 +1525,10 @@ add(void)
 
 	mul();
 	for (;;) {
-		switch (nextTok) {
+		switch (nextToken) {
 		case '+':
 		case '-':
-			t = nextTok;
+			t = nextToken;
 			lex();
 			mul();
 			pushop(t);
@@ -1545,10 +1545,10 @@ slsr(void)
 
 	add();
 	for (;;) {
-		switch (nextTok) {
+		switch (nextToken) {
 		case SL:
 		case SR:
-			t = nextTok;
+			t = nextToken;
 			lex();
 			add();
 			pushop(t);
@@ -1565,12 +1565,12 @@ leltgegt(void)
 
 	slsr();
 	for (;;) {
-		switch (nextTok) {
+		switch (nextToken) {
 		case LE:
 		case '<':
 		case GE:
 		case '>':
-			t = nextTok;
+			t = nextToken;
 			lex();
 			slsr();
 			pushop(t);
@@ -1587,10 +1587,10 @@ eqne(void)
 
 	leltgegt();
 	for (;;) {
-		switch (nextTok) {
+		switch (nextToken) {
 		case EQ:
 		case NE:
-			t = nextTok;
+			t = nextToken;
 			lex();
 			leltgegt();
 			pushop(t);
@@ -1637,19 +1637,19 @@ andand(void)
 
 	or();
 	if (match(AA)) {
-		lab = labnum;
-		labnum += 3;
+		lab = labelNum;
+		labelNum += 3;
 
 		do {
 			jumpf(lab);
-			++labnum;
+			++labelNum;
 			or();
 		} while (match(AA));
 
 		jumpt(lab+1);
 		label(lab);
 		pushnum(0);
-		decsp();
+		decSp();
 		jump(lab+2);
 		label(lab+1);
 		pushnum(1);
@@ -1664,19 +1664,19 @@ oror(void)
 
 	andand();
 	if (match(OO)) {
-		lab = labnum;
-		labnum += 3;
+		lab = labelNum;
+		labelNum += 3;
 
 		do {
 			jumpt(lab);
-			++labnum;
+			++labelNum;
 			andand();
 		} while (match(OO));
 
 		jumpf(lab+1);
 		label(lab);
 		pushnum(1);
-		decsp();
+		decSp();
 		jump(lab+2);
 		label(lab+1);
 		pushnum(0);
@@ -1691,12 +1691,12 @@ cond(void)
 
 	oror();
 	if (match('?')) {
-		lab = labnum;
-		labnum += 2;
+		lab = labelNum;
+		labelNum += 2;
 
 		jumpf(lab);
 		expr();
-		decsp();
+		decSp();
 		jump(lab+1);
 		assume(':');
 		label(lab);
@@ -1711,7 +1711,7 @@ assign(void)
 	register int t;
 
 	cond();
-	switch (nextTok) {
+	switch (nextToken) {
 	case '=':
 		lex();
 		assign();
@@ -1781,7 +1781,7 @@ expr(void)
 {
 	assign();
 	while (match(',')) {
-		decsp();
+		decSp();
 		assign();
 	}
 }
@@ -1792,7 +1792,7 @@ newsym(void)
 	/* Create a new symbol table entry */
 	register int mysym;
 
-	switch (nextTok) {
+	switch (nextToken) {
 	case WORD:
 		mysym = lexsym;
 		break;
@@ -1805,7 +1805,7 @@ newsym(void)
 		break;
 	default:
 		error("ill-formed declaration of %s",
-		      namestring(symtab[mysym].ipos));
+		      nameString(symtab[mysym].ipos));
 	}
 	lex();
 	symtab[mysym].scope = scope;
@@ -1819,7 +1819,7 @@ stat(void)
 	register int lab;
 	register int mysym;
 
-	switch (nextTok) {
+	switch (nextToken) {
 	case '{':
 		lex();
 		scopesymsp = symsp;
@@ -1836,11 +1836,11 @@ stat(void)
 	case IF:
 		lex();
 		expr();
-		lab = labnum;
-		labnum += 2;
+		lab = labelNum;
+		labelNum += 2;
 		jumpf(lab);
 		stat();
-		if (nextTok == ELSE) {
+		if (nextToken == ELSE) {
 			lex();
 			jump(lab+1);
 			label(lab);
@@ -1853,11 +1853,11 @@ stat(void)
 	case FOR:
 		lex();
 		assume('(');
-		lab = labnum;
-		labnum += 4;
+		lab = labelNum;
+		labelNum += 4;
 		if (!match(';')) {
 			expr();
-			decsp();
+			decSp();
 			match(';');
 		}
 		label(lab);
@@ -1870,7 +1870,7 @@ stat(void)
 		label(lab+3);
 		if (!match(')')) {
 			expr();
-			decsp();
+			decSp();
 			match(')');
 		}
 		jump(lab);
@@ -1881,8 +1881,8 @@ stat(void)
 		break;
 	case WHILE:
 		lex();
-		lab = labnum;
-		labnum += 2;
+		lab = labelNum;
+		labelNum += 2;
 		label(lab);
 		expr();
 		jumpf(lab+1);
@@ -1892,7 +1892,7 @@ stat(void)
 		break;
 	case DO:
 		lex();
-		lab = (labnum++);
+		lab = (labelNum++);
 		label(lab);
 		stat();
 		if (match(WHILE)) {
@@ -1904,7 +1904,7 @@ stat(void)
 		break;
 	case RETURN:
 		lex();
-		if (nextTok != ';') {
+		if (nextToken != ';') {
 			expr();
 			pushop(RETVAL);
 		}
@@ -1912,11 +1912,11 @@ stat(void)
 		break;
 	case GOTO:
 		lex();
-		ghoto(namestring(symtab[newsym()].ipos));
+		ghoto(nameString(symtab[newsym()].ipos));
 		--symsp;
 		break;
 	case TARGET:
-		target(namestring(symtab[symsp-1].ipos));
+		target(nameString(symtab[symsp-1].ipos));
 		--symsp;
 		lex();
 		assume(':');
@@ -1927,7 +1927,7 @@ stat(void)
 	default:
 		expr();
 		assume(';');
-		decsp();
+		decSp();
 		break;
 	}
 }
@@ -1935,7 +1935,7 @@ stat(void)
 int
 ctype(void)
 {
-	switch (nextTok) {
+	switch (nextToken) {
 	case INT:	lex(); return(4);
 	case SHORT:	lex(); return(2);
 	case CHAR:	lex(); return(1);
@@ -1959,13 +1959,13 @@ moredecls:
 		mysym = newsym();
 		symtab[mysym].size = size;
 
-		switch (nextTok) {
+		switch (nextToken) {
 		case '[':
 			lex();
 			symtab[mysym].type = VAR;
-			if (nextTok != NUM) {
+			if (nextToken != NUM) {
 				error("non-constant dim for %s",
-				      namestring(symtab[mysym].ipos));
+				      nameString(symtab[mysym].ipos));
 			}
 			symtab[mysym].dim = lexnum;
 			def(mysym);
@@ -1987,7 +1987,7 @@ moredecls:
 		case '(':
 			if (scope != 0) {
 				error("nested definition of function %s",
-				      namestring(symtab[mysym].ipos));
+				      nameString(symtab[mysym].ipos));
 			}
 			lex();
 
@@ -2054,7 +2054,7 @@ main(int argc, char **argv)
 
 	input[eof] = 0;
 	ipos = 0;
-	nextTok = lex();
+	nextToken = lex();
 	startup();
 	decl();
 }
