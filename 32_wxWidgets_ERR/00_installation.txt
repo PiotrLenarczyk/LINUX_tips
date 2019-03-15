@@ -1,0 +1,12 @@
+UBUNTU INSTALLATION:
+https://wiki.wxwidgets.org/Installing_and_configuring_under_Ubuntu
+	#sudo aptitude install libwxgtk3.0-0v5 libwxgtk3.0-0v5-dbg libgtk-3-dev libwxgtk3.0-dev
+Linking and Compiling
+
+Normally when you include wxWidgets you say "wx/wx.h" however wxwidgets is in the subdirectory of wx-2.8/wx so what we are going to do is create a link to wx-2.8/wx. thats all now your files should compile correctly
+	#sudo ln -sv wx-2.8/wx wx
+When you compile your files to include the wxWidgets libraries, add this to the end of your gcc command:
+	`wx-config --cxxflags` `wx-config --libs`
+
+TUTORIAL:
+https://docs.wxwidgets.org/stable/overview_helloworld.html
