@@ -6,9 +6,10 @@
 // Description: 
 //
 //---------------------------------------------------------------------------
-
 #include "buttonApp.h"
 #include "buttonDlg.h"
+#include "buttonDlg.cpp"
+
 
 IMPLEMENT_APP(buttonDlgApp)
 
@@ -16,7 +17,7 @@ bool buttonDlgApp::OnInit()
 {
 	buttonDlg* dialog = new buttonDlg(NULL);
 	SetTopWindow(dialog);
-	dialog->Show(true);		
+	dialog->Show(true);
 	return true;
 }
  

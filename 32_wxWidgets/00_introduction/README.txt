@@ -4,4 +4,4 @@ WINDOWS:
 3) Project Properties->Linker->Enable debug symbols
 
 LINUX: 
-use #make makefile; with libwxgtk* packages
+use #make generic  makefile; with libwxgtk* packages
