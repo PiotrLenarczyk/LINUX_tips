@@ -32,9 +32,11 @@ VS_2017:
 4) VC++ configuration: based on C:/wxWidgetxXX/samples/minimal
 WXDEV-CPP:
 1) just working, not tested for LINUX compilation
+Code::Blocks: //https://eduinf.waw.pl/inf/utils/013_2013/0304.php
 
 TUTORIAL:
 https://docs.wxwidgets.org/stable/overview_helloworld.html
+http://zetcode.com/gui/wxwidgets/
 
 DEVELOPMENT:
 use CMakeFiles for two target platforms compilation
