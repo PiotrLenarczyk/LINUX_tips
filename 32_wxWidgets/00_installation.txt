@@ -1,3 +1,6 @@
+DEVELOPMENT:
+use makefiles for two target platforms compilation
+
 UBUNTU INSTALLATION:
 installing wxWidgets https://wiki.wxwidgets.org/Installing_and_configuring_under_Ubuntu
 get repository 3.0 https://wiki.codelite.org/pmwiki.php/Main/WxWidgets30Binaries	
@@ -38,5 +41,3 @@ TUTORIAL:
 https://docs.wxwidgets.org/stable/overview_helloworld.html
 http://zetcode.com/gui/wxwidgets/
 
-DEVELOPMENT:
-use CMakeFiles for two target platforms compilation
