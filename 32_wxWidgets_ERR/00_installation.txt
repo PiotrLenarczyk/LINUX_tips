@@ -1,12 +1,24 @@
 UBUNTU INSTALLATION:
-https://wiki.wxwidgets.org/Installing_and_configuring_under_Ubuntu
+installing wxWidgets https://wiki.wxwidgets.org/Installing_and_configuring_under_Ubuntu
+get repository 3.0 https://wiki.codelite.org/pmwiki.php/Main/WxWidgets30Binaries	
+ sudo apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
+ sudo apt-add-repository 'deb http://repos.codelite.org/wx3.0.4/ubuntu/ artful universe'
+ sudo apt-get update 
+ sudo apt-get install libwxbase3.0-0-unofficial \
+                 libwxbase3.0-dev \
+                 libwxgtk3.0-0-unofficial \
+                 libwxgtk3.0-dev \
+                 wx3.0-headers \
+                 wx-common \
+                 libwxbase3.0-dbg \
+                 libwxgtk3.0-dbg \
+                 wx3.0-i18n \
+                 wx3.0-examples \
+                 wx3.0-doc
+getting started with samples/minimal
 	#sudo aptitude install libwxgtk3.0-0v5 libwxgtk3.0-0v5-dbg libgtk-3-dev libwxgtk3.0-dev
-Linking and Compiling
-
-Normally when you include wxWidgets you say "wx/wx.h" however wxwidgets is in the subdirectory of wx-2.8/wx so what we are going to do is create a link to wx-2.8/wx. thats all now your files should compile correctly
-	#sudo ln -sv wx-2.8/wx wx
-When you compile your files to include the wxWidgets libraries, add this to the end of your gcc command:
-	`wx-config --cxxflags` `wx-config --libs`
+gcc flags for includes and libraries
+	#`wx-config --cxxflags` `wx-config --libs`
 
 WINDOWS INSTALLATION:
 //http://www.gamedev.pl/forum/wxwidgets--ciezki-problem-z-konfiguracja-visual-c-2008
@@ -18,6 +30,11 @@ VS_2017:
 	#nmake -f makefile.vc BUILD=release MONOLITHIC=1
     #nmake -f makefile.vc BUILD=debug MONOLITHIC=1
 4) VC++ configuration: based on C:/wxWidgetxXX/samples/minimal
+WXDEV-CPP:
+1) just working, not tested for LINUX compilation
 
 TUTORIAL:
 https://docs.wxwidgets.org/stable/overview_helloworld.html
+
+DEVELOPMENT:
+use CMakeFiles for two target platforms compilation

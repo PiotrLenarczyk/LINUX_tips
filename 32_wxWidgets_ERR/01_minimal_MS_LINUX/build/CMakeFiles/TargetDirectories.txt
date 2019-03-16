@@ -1,0 +1,3 @@
+/media/lenarczp/64D462C8D4629C54/wxWidgets-3.1.2/samples/minimal_LINUX/build/CMakeFiles/edit_cache.dir
+/media/lenarczp/64D462C8D4629C54/wxWidgets-3.1.2/samples/minimal_LINUX/build/CMakeFiles/rebuild_cache.dir
+/media/lenarczp/64D462C8D4629C54/wxWidgets-3.1.2/samples/minimal_LINUX/build/CMakeFiles/minimal.dir
