@@ -1,5 +1,7 @@
 DEVELOPMENT:
-use makefiles for two target platforms compilation
+1)use makefiles for two target platforms compilation for single main file
+2)include source files into main file
+3)separate algorithm implementation from graphical stuff
 
 UBUNTU INSTALLATION:
 1)installing wxWidgets https://wiki.wxwidgets.org/Installing_and_configuring_under_Ubuntu

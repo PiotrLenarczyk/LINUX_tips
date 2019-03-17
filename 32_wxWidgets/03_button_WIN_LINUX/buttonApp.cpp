@@ -7,7 +7,6 @@
 //
 //---------------------------------------------------------------------------
 #include "buttonApp.h"
-#include "buttonDlg.h"
 #include "buttonDlg.cpp"
 
 
