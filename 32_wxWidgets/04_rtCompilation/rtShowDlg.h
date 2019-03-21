@@ -52,18 +52,19 @@ class rtShowDlg : public wxDialog
 		void rtShowDlgActivate(wxActivateEvent& event);
 		void WxButton_CompileRunClick(wxCommandEvent& event);
 		void WxButton_ElfHexClick(wxCommandEvent& event);
+		void WxButton_DisassembleClick(wxCommandEvent& event);
 	
 	private:
 		//Do not add custom control declarations between 
 		//GUI Control Declaration Start and GUI Control Declaration End.
 		//wxDev-C++ will remove them. Add custom code after the block.
 		////GUI Control Declaration Start
+		wxButton *WxButton_Disassemble;
 		wxButton *WxButton_ElfHex;
 		wxStaticText *WxStaticText_CurrentMode;
 		wxStaticText *WxStaticText_CurrentStatus;
 		wxButton *WxButton_CompileRun;
 		wxButton *WxButton_ChooseFile;
-		wxButton *WxButton_GoToLine;
 		wxButton *WxButton_Assembly;
 		wxButton *WxButton_Preprocess;
 		wxRichTextCtrl *WxRichTextCtr_Console;
@@ -77,12 +78,12 @@ class rtShowDlg : public wxDialog
 		enum
 		{
 			////GUI Enum Control ID Start
+			ID_WXBUTTON_DISASSEMBLE = 1011,
 			ID_WXBUTTON_ELFHEX = 1010,
 			ID_WXSTATICTEXT_CURRENTMODE = 1009,
 			ID_WXSTATICTEXT_CURRENTSTATUS = 1008,
 			ID_WXBUTTON_COMPILERUN = 1007,
 			ID_WXBUTTON_CHOOSEFILE = 1006,
-			ID_WXBUTTON_GOTOLINE = 1005,
 			ID_WXBUTTON_ASSEMBLY = 1003,
 			ID_WXBUTTON_PREPROCESS = 1002,
 			ID_WXRICHTEXTCTR_CONSOLE = 1001,

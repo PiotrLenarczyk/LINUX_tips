@@ -143,51 +143,13 @@ object frmNewForm: TfrmNewForm
     Wx_Floating_X_Pos = 0
     Wx_Floating_Y_Pos = 0
   end
-  object WxButton_GoToLine: TWxButton
-    Left = 393
-    Top = 527
-    Width = 60
-    Height = 35
-    Caption = 'goToLine'
-    TabOrder = 3
-    EVT_BUTTON = 'WxButton_GoToLineClick'
-    Wx_BKColor = clBlack
-    Wx_ButtonStyle = []
-    Wx_Class = 'wxButton'
-    Wx_ControlOrientation = wxControlVertical
-    Wx_Default = False
-    Wx_EventList.Strings = (
-      'EVT_BUTTON:OnClick'
-      'EVT_UPDATE_UI:OnUpdateUI')
-    Wx_FGColor = clBlack
-    Wx_GeneralStyle = []
-    Wx_Hidden = False
-    Wx_IDName = 'ID_WXBUTTON_GOTOLINE'
-    Wx_IDValue = 1005
-    Wx_PaneCaption = 'WxButton4'
-    Wx_PaneName = 'WxButton4_Pane'
-    Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
-    Wx_Aui_Dockable_Direction = []
-    Wx_Aui_Pane_Style = []
-    Wx_Aui_Pane_Buttons = []
-    Wx_BestSize_Height = 0
-    Wx_BestSize_Width = 0
-    Wx_MinSize_Height = 0
-    Wx_MinSize_Width = 0
-    Wx_MaxSize_Height = 0
-    Wx_MaxSize_Width = 0
-    Wx_Floating_Height = 0
-    Wx_Floating_Width = 0
-    Wx_Floating_X_Pos = 0
-    Wx_Floating_Y_Pos = 0
-  end
   object WxButton_ChooseFile: TWxButton
-    Left = 336
-    Top = 527
+    Left = 397
+    Top = 526
     Width = 56
     Height = 35
     Caption = 'File'
-    TabOrder = 4
+    TabOrder = 3
     EVT_BUTTON = 'WxButton_ChooseFileClick'
     Wx_BKColor = clBlack
     Wx_ButtonStyle = []
@@ -225,7 +187,7 @@ object frmNewForm: TfrmNewForm
     Width = 144
     Height = 35
     Caption = 'Compile; Run; Loop;'
-    TabOrder = 5
+    TabOrder = 4
     EVT_BUTTON = 'WxButton_CompileRunClick'
     Wx_BKColor = clBlack
     Wx_ButtonStyle = []
@@ -258,12 +220,13 @@ object frmNewForm: TfrmNewForm
     Wx_Floating_Y_Pos = 0
   end
   object WxStaticText_CurrentStatus: TWxStaticText
-    Left = 602
+    Left = 594
     Top = 527
-    Width = 32
+    Width = 43
     Height = 35
+    AutoSize = False
     Caption = 'Status'
-    TabOrder = 6
+    TabOrder = 5
     Wx_BGColor = clBlack
     Wx_Class = 'wxStaticText'
     Wx_ControlOrientation = wxControlVertical
@@ -272,7 +235,7 @@ object frmNewForm: TfrmNewForm
     Wx_Hidden = False
     Wx_IDName = 'ID_WXSTATICTEXT_CURRENTSTATUS'
     Wx_IDValue = 1008
-    Wx_LabelStyle = []
+    Wx_LabelStyle = [wxST_NO_AUTORESIZE]
     Wx_PaneCaption = 'WxStaticText1'
     Wx_PaneName = 'WxStaticText1_Pane'
     Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
@@ -291,12 +254,13 @@ object frmNewForm: TfrmNewForm
     Wx_Floating_Y_Pos = 0
   end
   object WxStaticText_CurrentMode: TWxStaticText
-    Left = 452
+    Left = 453
     Top = 527
-    Width = 148
-    Height = 35
+    Width = 136
+    Height = 34
+    AutoSize = False
     Caption = 'Mode'
-    TabOrder = 7
+    TabOrder = 6
     Wx_BGColor = clBlack
     Wx_Class = 'wxStaticText'
     Wx_ControlOrientation = wxControlVertical
@@ -305,7 +269,7 @@ object frmNewForm: TfrmNewForm
     Wx_Hidden = False
     Wx_IDName = 'ID_WXSTATICTEXT_CURRENTMODE'
     Wx_IDValue = 1009
-    Wx_LabelStyle = []
+    Wx_LabelStyle = [wxST_NO_AUTORESIZE]
     Wx_PaneCaption = 'WxStaticText1'
     Wx_PaneName = 'WxStaticText1_Pane'
     Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
@@ -326,10 +290,10 @@ object frmNewForm: TfrmNewForm
   object WxButton_ElfHex: TWxButton
     Left = 216
     Top = 527
-    Width = 119
+    Width = 97
     Height = 35
     Caption = 'ElfHex'
-    TabOrder = 8
+    TabOrder = 7
     EVT_BUTTON = 'WxButton_ElfHexClick'
     Wx_BKColor = clBlack
     Wx_ButtonStyle = []
@@ -344,6 +308,44 @@ object frmNewForm: TfrmNewForm
     Wx_Hidden = False
     Wx_IDName = 'ID_WXBUTTON_ELFHEX'
     Wx_IDValue = 1010
+    Wx_PaneCaption = 'WxButton1'
+    Wx_PaneName = 'WxButton1_Pane'
+    Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+    Wx_Aui_Dockable_Direction = []
+    Wx_Aui_Pane_Style = []
+    Wx_Aui_Pane_Buttons = []
+    Wx_BestSize_Height = 0
+    Wx_BestSize_Width = 0
+    Wx_MinSize_Height = 0
+    Wx_MinSize_Width = 0
+    Wx_MaxSize_Height = 0
+    Wx_MaxSize_Width = 0
+    Wx_Floating_Height = 0
+    Wx_Floating_Width = 0
+    Wx_Floating_X_Pos = 0
+    Wx_Floating_Y_Pos = 0
+  end
+  object WxButton_Disassemble: TWxButton
+    Left = 316
+    Top = 527
+    Width = 80
+    Height = 35
+    Caption = 'Disassembly'
+    TabOrder = 8
+    EVT_BUTTON = 'WxButton_DisassembleClick'
+    Wx_BKColor = clBlack
+    Wx_ButtonStyle = []
+    Wx_Class = 'wxButton'
+    Wx_ControlOrientation = wxControlVertical
+    Wx_Default = False
+    Wx_EventList.Strings = (
+      'EVT_BUTTON:OnClick'
+      'EVT_UPDATE_UI:OnUpdateUI')
+    Wx_FGColor = clBlack
+    Wx_GeneralStyle = []
+    Wx_Hidden = False
+    Wx_IDName = 'ID_WXBUTTON_DISASSEMBLE'
+    Wx_IDValue = 1011
     Wx_PaneCaption = 'WxButton1'
     Wx_PaneName = 'WxButton1_Pane'
     Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE

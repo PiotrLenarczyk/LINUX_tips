@@ -1,7 +1,7 @@
 # Project: rtShow
 # Compiler: Default GCC compiler
 # Compiler Type: MingW 3
-# Makefile created by wxDev-C++ IDE 7.4.2.569 on 21.03.19 10:47
+# Makefile created by wxDev-C++ IDE 7.4.2.569 on 21.03.19 13:04
 
 WXLIBNAME = wxmsw29u
 CPP       = g++.exe

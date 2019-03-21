@@ -27,10 +27,10 @@ BEGIN_EVENT_TABLE(rtShowDlg,wxDialog)
 	
 	EVT_CLOSE(rtShowDlg::OnClose)
 	EVT_ACTIVATE(rtShowDlg::rtShowDlgActivate)
+	EVT_BUTTON(ID_WXBUTTON_DISASSEMBLE,rtShowDlg::WxButton_DisassembleClick)
 	EVT_BUTTON(ID_WXBUTTON_ELFHEX,rtShowDlg::WxButton_ElfHexClick)
 	EVT_BUTTON(ID_WXBUTTON_COMPILERUN,rtShowDlg::WxButton_CompileRunClick)
 	EVT_BUTTON(ID_WXBUTTON_CHOOSEFILE,rtShowDlg::WxButton_ChooseFileClick)
-	EVT_BUTTON(ID_WXBUTTON_GOTOLINE,rtShowDlg::WxButton_GoToLineClick)
 	EVT_BUTTON(ID_WXBUTTON_ASSEMBLY,rtShowDlg::WxButton_AssembleClick)
 	EVT_BUTTON(ID_WXBUTTON_PREPROCESS,rtShowDlg::WxButton_PreprocessClick)
 END_EVENT_TABLE()
@@ -54,17 +54,17 @@ void rtShowDlg::CreateGUIControls()
 	//Add the custom code before or after the blocks
 	////GUI Items Creation Start
 
-	WxButton_ElfHex = new wxButton(this, ID_WXBUTTON_ELFHEX, _("ElfHex"), wxPoint(216, 527), wxSize(119, 35), 0, wxDefaultValidator, _("WxButton_ElfHex"));
+	WxButton_Disassemble = new wxButton(this, ID_WXBUTTON_DISASSEMBLE, _("Disassembly"), wxPoint(316, 527), wxSize(80, 35), 0, wxDefaultValidator, _("WxButton_Disassemble"));
 
-	WxStaticText_CurrentMode = new wxStaticText(this, ID_WXSTATICTEXT_CURRENTMODE, _("Mode"), wxPoint(452, 527), wxDefaultSize, 0, _("WxStaticText_CurrentMode"));
+	WxButton_ElfHex = new wxButton(this, ID_WXBUTTON_ELFHEX, _("ElfHex"), wxPoint(216, 527), wxSize(97, 35), 0, wxDefaultValidator, _("WxButton_ElfHex"));
 
-	WxStaticText_CurrentStatus = new wxStaticText(this, ID_WXSTATICTEXT_CURRENTSTATUS, _("Status"), wxPoint(602, 527), wxDefaultSize, 0, _("WxStaticText_CurrentStatus"));
+	WxStaticText_CurrentMode = new wxStaticText(this, ID_WXSTATICTEXT_CURRENTMODE, _("Mode"), wxPoint(453, 527), wxSize(136, 34), wxST_NO_AUTORESIZE, _("WxStaticText_CurrentMode"));
+
+	WxStaticText_CurrentStatus = new wxStaticText(this, ID_WXSTATICTEXT_CURRENTSTATUS, _("Status"), wxPoint(594, 527), wxSize(43, 35), wxST_NO_AUTORESIZE, _("WxStaticText_CurrentStatus"));
 
 	WxButton_CompileRun = new wxButton(this, ID_WXBUTTON_COMPILERUN, _("Compile; Run; Loop;"), wxPoint(636, 527), wxSize(144, 35), 0, wxDefaultValidator, _("WxButton_CompileRun"));
 
-	WxButton_ChooseFile = new wxButton(this, ID_WXBUTTON_CHOOSEFILE, _("File"), wxPoint(336, 527), wxSize(56, 35), 0, wxDefaultValidator, _("WxButton_ChooseFile"));
-
-	WxButton_GoToLine = new wxButton(this, ID_WXBUTTON_GOTOLINE, _("goToLine"), wxPoint(393, 527), wxSize(60, 35), 0, wxDefaultValidator, _("WxButton_GoToLine"));
+	WxButton_ChooseFile = new wxButton(this, ID_WXBUTTON_CHOOSEFILE, _("File"), wxPoint(397, 526), wxSize(56, 35), 0, wxDefaultValidator, _("WxButton_ChooseFile"));
 
 	WxButton_Assembly = new wxButton(this, ID_WXBUTTON_ASSEMBLY, _("Assembly"), wxPoint(3, 527), wxSize(110, 35), 0, wxDefaultValidator, _("WxButton_Assembly"));
 
@@ -150,6 +150,14 @@ void rtShowDlg::WxButton_CompileRunClick(wxCommandEvent& event)
  * WxButton_ElfHexClick
  */
 void rtShowDlg::WxButton_ElfHexClick(wxCommandEvent& event)
+{
+	// insert your code here
+}
+
+/*
+ * WxButton_DisassembleClick
+ */
+void rtShowDlg::WxButton_DisassembleClick(wxCommandEvent& event)
 {
 	// insert your code here
 }
