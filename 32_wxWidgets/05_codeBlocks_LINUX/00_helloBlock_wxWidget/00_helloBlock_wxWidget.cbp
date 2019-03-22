@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="00_helloBlock_wxWidget" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/00_helloBlock_wxWidget" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/00_helloBlock_wxWidget" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="`wx-config --cflags`" />
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add option="`wx-config --libs`" />
+		</Linker>
+		<Unit filename="_0_helloBlock_wxWidgetApp.cpp" />
+		<Unit filename="_0_helloBlock_wxWidgetApp.h" />
+		<Unit filename="_0_helloBlock_wxWidgetMain.cpp" />
+		<Unit filename="_0_helloBlock_wxWidgetMain.h" />
+		<Unit filename="wxsmith/_0_helloBlock_wxWidgetdialog.wxs" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="_0_helloBlock_wxWidgetApp.cpp" main="_0_helloBlock_wxWidgetDialog" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxDialog wxs="wxsmith/_0_helloBlock_wxWidgetdialog.wxs" src="_0_helloBlock_wxWidgetMain.cpp" hdr="_0_helloBlock_wxWidgetMain.h" fwddecl="0" i18n="1" name="_0_helloBlock_wxWidgetDialog" language="CPP" />
+				</resources>
+			</wxsmith>
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
