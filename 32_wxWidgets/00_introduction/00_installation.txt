@@ -6,7 +6,7 @@ DEVELOPMENT:
 UBUNTU INSTALLATION:
 1)installing wxWidgets https://wiki.wxwidgets.org/Installing_and_configuring_under_Ubuntu
 basic packages:
-	#sudo aptitude install libwxgtk3.0-dev libwxgtk3.0-0v5-dbg libwxgtk3.0-0v5
+	#sudo aptitude install libwxgtk3.0-dev libwxgtk3.0-0v5-dbg libwxgtk3.0-0v5 libwxgtk-media3.0-dev libwxgtk-media3.0-0v5 libwxgtk-media3.0-0v5-dbg libwxgtk-webview3.0-0v5 libwxgtk-webview3.0-dev libwxgtk-webview3.0-0v5
 1)get repository 3.0 //https://wiki.codelite.org/pmwiki.php/Main/WxWidgets30Binaries	
  sudo apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
  sudo apt-add-repository 'deb http://repos.codelite.org/wx3.0.4/ubuntu/ artful universe'

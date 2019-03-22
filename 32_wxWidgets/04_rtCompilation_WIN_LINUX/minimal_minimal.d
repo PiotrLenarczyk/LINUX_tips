@@ -5,14 +5,14 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/wx-3.0/wx/chkconf.h /usr/include/wx-3.0/wx/gtk/chkconf.h \
  /usr/include/wx-3.0/wx/unix/chkconf.h /usr/include/wx-3.0/wx/version.h \
  /usr/include/wx-3.0/wx/cpp.h /usr/include/wx-3.0/wx/dlimpexp.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h \
  /usr/include/wx-3.0/wx/debug.h /usr/include/assert.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
@@ -20,7 +20,7 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/wx-3.0/wx/chartype.h /usr/include/wchar.h \
- /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
+ /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
@@ -38,8 +38,12 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/wx-3.0/wx/object.h /usr/include/wx-3.0/wx/memory.h \
  /usr/include/wx-3.0/wx/string.h /usr/include/string.h \
  /usr/include/libio.h /usr/include/_G_config.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
- /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/c++/6/stdlib.h /usr/include/c++/6/cstdlib \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/wx-3.0/wx/wxcrtbase.h /usr/include/ctype.h \
@@ -47,51 +51,62 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/wx-3.0/wx/strvararg.h /usr/include/wx-3.0/wx/strconv.h \
  /usr/include/wx-3.0/wx/buffer.h /usr/include/wx-3.0/wx/fontenc.h \
  /usr/include/wx-3.0/wx/unichar.h /usr/include/wx-3.0/wx/stringimpl.h \
- /usr/include/wx-3.0/wx/beforestd.h /usr/include/c++/5/string \
- /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/c++/5/bits/stringfwd.h /usr/include/c++/5/bits/memoryfwd.h \
- /usr/include/c++/5/bits/char_traits.h \
- /usr/include/c++/5/bits/stl_algobase.h \
- /usr/include/c++/5/bits/functexcept.h \
- /usr/include/c++/5/bits/exception_defines.h \
- /usr/include/c++/5/bits/cpp_type_traits.h \
- /usr/include/c++/5/ext/type_traits.h \
- /usr/include/c++/5/ext/numeric_traits.h \
- /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
- /usr/include/c++/5/bits/concept_check.h \
- /usr/include/c++/5/bits/stl_iterator_base_types.h \
- /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
- /usr/include/c++/5/bits/ptr_traits.h \
- /usr/include/c++/5/bits/predefined_ops.h \
- /usr/include/c++/5/bits/postypes.h /usr/include/c++/5/cwchar \
- /usr/include/c++/5/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
- /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
- /usr/include/c++/5/exception \
- /usr/include/c++/5/bits/atomic_lockfree_defines.h \
- /usr/include/c++/5/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/c++locale.h \
- /usr/include/c++/5/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/5/iosfwd \
- /usr/include/c++/5/cctype /usr/include/c++/5/bits/ostream_insert.h \
- /usr/include/c++/5/bits/cxxabi_forced.h \
- /usr/include/c++/5/bits/stl_function.h \
- /usr/include/c++/5/backward/binders.h \
- /usr/include/c++/5/bits/range_access.h \
- /usr/include/c++/5/bits/basic_string.h \
- /usr/include/c++/5/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/gthr-default.h \
+ /usr/include/wx-3.0/wx/beforestd.h /usr/include/c++/6/string \
+ /usr/include/c++/6/bits/stringfwd.h /usr/include/c++/6/bits/memoryfwd.h \
+ /usr/include/c++/6/bits/char_traits.h \
+ /usr/include/c++/6/bits/stl_algobase.h \
+ /usr/include/c++/6/bits/functexcept.h \
+ /usr/include/c++/6/bits/exception_defines.h \
+ /usr/include/c++/6/bits/cpp_type_traits.h \
+ /usr/include/c++/6/ext/type_traits.h \
+ /usr/include/c++/6/ext/numeric_traits.h \
+ /usr/include/c++/6/bits/stl_pair.h /usr/include/c++/6/bits/move.h \
+ /usr/include/c++/6/bits/concept_check.h /usr/include/c++/6/type_traits \
+ /usr/include/c++/6/bits/stl_iterator_base_types.h \
+ /usr/include/c++/6/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/6/debug/assertions.h \
+ /usr/include/c++/6/bits/stl_iterator.h \
+ /usr/include/c++/6/bits/ptr_traits.h /usr/include/c++/6/debug/debug.h \
+ /usr/include/c++/6/bits/predefined_ops.h \
+ /usr/include/c++/6/bits/postypes.h /usr/include/c++/6/cwchar \
+ /usr/include/c++/6/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/c++/6/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++allocator.h \
+ /usr/include/c++/6/ext/new_allocator.h /usr/include/c++/6/new \
+ /usr/include/c++/6/exception \
+ /usr/include/c++/6/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/6/bits/exception_ptr.h \
+ /usr/include/c++/6/bits/nested_exception.h \
+ /usr/include/c++/6/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++locale.h \
+ /usr/include/c++/6/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/6/iosfwd \
+ /usr/include/c++/6/cctype /usr/include/c++/6/bits/ostream_insert.h \
+ /usr/include/c++/6/bits/cxxabi_forced.h \
+ /usr/include/c++/6/bits/stl_function.h \
+ /usr/include/c++/6/backward/binders.h \
+ /usr/include/c++/6/bits/range_access.h \
+ /usr/include/c++/6/initializer_list \
+ /usr/include/c++/6/bits/basic_string.h \
+ /usr/include/c++/6/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
  /usr/include/x86_64-linux-gnu/bits/sched.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/atomic_word.h \
- /usr/include/c++/5/ext/alloc_traits.h \
- /usr/include/c++/5/bits/basic_string.tcc \
- /usr/include/wx-3.0/wx/afterstd.h /usr/include/c++/5/tr1/type_traits \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/atomic_word.h \
+ /usr/include/c++/6/ext/alloc_traits.h \
+ /usr/include/c++/6/bits/alloc_traits.h \
+ /usr/include/c++/6/ext/string_conversions.h /usr/include/c++/6/cstdio \
+ /usr/include/c++/6/cerrno /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/c++/6/bits/functional_hash.h \
+ /usr/include/c++/6/bits/hash_bytes.h \
+ /usr/include/c++/6/bits/basic_string.tcc \
+ /usr/include/wx-3.0/wx/afterstd.h /usr/include/c++/6/tr1/type_traits \
  /usr/include/wx-3.0/wx/stringops.h /usr/include/wx-3.0/wx/iosfwrap.h \
  /usr/include/wx-3.0/wx/crt.h /usr/include/wx-3.0/wx/wxcrt.h \
  /usr/include/wx-3.0/wx/wxcrtvararg.h /usr/include/wx-3.0/wx/msgout.h \
@@ -102,29 +117,33 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/wx-3.0/wx/except.h /usr/include/wx-3.0/wx/meta/movable.h \
  /usr/include/wx-3.0/wx/meta/pod.h /usr/include/wx-3.0/wx/meta/if.h \
  /usr/include/wx-3.0/wx/hash.h /usr/include/wx-3.0/wx/hashmap.h \
- /usr/include/wx-3.0/wx/arrstr.h /usr/include/c++/5/iterator \
- /usr/include/c++/5/ostream /usr/include/c++/5/ios \
- /usr/include/c++/5/bits/ios_base.h \
- /usr/include/c++/5/bits/locale_classes.h \
- /usr/include/c++/5/bits/locale_classes.tcc /usr/include/c++/5/stdexcept \
- /usr/include/c++/5/streambuf /usr/include/c++/5/bits/streambuf.tcc \
- /usr/include/c++/5/bits/basic_ios.h \
- /usr/include/c++/5/bits/locale_facets.h /usr/include/c++/5/cwctype \
- /usr/include/x86_64-linux-gnu/c++/5/bits/ctype_base.h \
- /usr/include/c++/5/bits/streambuf_iterator.h \
- /usr/include/x86_64-linux-gnu/c++/5/bits/ctype_inline.h \
- /usr/include/c++/5/bits/locale_facets.tcc \
- /usr/include/c++/5/bits/basic_ios.tcc \
- /usr/include/c++/5/bits/ostream.tcc /usr/include/c++/5/istream \
- /usr/include/c++/5/bits/istream.tcc \
- /usr/include/c++/5/bits/stream_iterator.h /usr/include/wx-3.0/wx/intl.h \
+ /usr/include/wx-3.0/wx/arrstr.h /usr/include/c++/6/iterator \
+ /usr/include/c++/6/ostream /usr/include/c++/6/ios \
+ /usr/include/c++/6/bits/ios_base.h \
+ /usr/include/c++/6/bits/locale_classes.h \
+ /usr/include/c++/6/bits/locale_classes.tcc \
+ /usr/include/c++/6/system_error \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/error_constants.h \
+ /usr/include/c++/6/stdexcept /usr/include/c++/6/streambuf \
+ /usr/include/c++/6/bits/streambuf.tcc \
+ /usr/include/c++/6/bits/basic_ios.h \
+ /usr/include/c++/6/bits/locale_facets.h /usr/include/c++/6/cwctype \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/ctype_base.h \
+ /usr/include/c++/6/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/ctype_inline.h \
+ /usr/include/c++/6/bits/locale_facets.tcc \
+ /usr/include/c++/6/bits/basic_ios.tcc \
+ /usr/include/c++/6/bits/ostream.tcc /usr/include/c++/6/istream \
+ /usr/include/c++/6/bits/istream.tcc \
+ /usr/include/c++/6/bits/stream_iterator.h /usr/include/wx-3.0/wx/intl.h \
  /usr/include/wx-3.0/wx/translation.h /usr/include/wx-3.0/wx/language.h \
  /usr/include/wx-3.0/wx/scopedptr.h \
  /usr/include/wx-3.0/wx/checkeddelete.h /usr/include/wx-3.0/wx/log.h \
  /usr/include/wx-3.0/wx/thread.h /usr/include/wx-3.0/wx/generic/logg.h \
  /usr/include/wx-3.0/wx/event.h /usr/include/wx-3.0/wx/clntdata.h \
  /usr/include/wx-3.0/wx/gdicmn.h /usr/include/wx-3.0/wx/math.h \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/c++/6/math.h /usr/include/c++/6/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
@@ -147,9 +166,9 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/wx-3.0/wx/versioninfo.h \
  /usr/include/wx-3.0/wx/meta/implicitconversion.h \
  /usr/include/wx-3.0/wx/mousestate.h /usr/include/wx-3.0/wx/kbdstate.h \
- /usr/include/wx-3.0/wx/longlong.h /usr/include/c++/5/limits \
+ /usr/include/wx-3.0/wx/longlong.h /usr/include/c++/6/limits \
  /usr/include/wx-3.0/wx/platinfo.h /usr/include/wx-3.0/wx/tracker.h \
- /usr/include/wx-3.0/wx/typeinfo.h /usr/include/c++/5/typeinfo \
+ /usr/include/wx-3.0/wx/typeinfo.h /usr/include/c++/6/typeinfo \
  /usr/include/wx-3.0/wx/any.h /usr/include/wx-3.0/wx/datetime.h \
  /usr/include/wx-3.0/wx/anystr.h /usr/include/wx-3.0/wx/variant.h \
  /usr/include/wx-3.0/wx/meta/convertible.h \
@@ -228,7 +247,7 @@ minimal_minimal.o: rtShowApp.cpp /usr/include/stdc-predef.h rtShowApp.h \
  /usr/include/wx-3.0/wx/gtk/radiobut.h /usr/include/wx-3.0/wx/textctrl.h \
  /usr/include/wx-3.0/wx/textentry.h \
  /usr/include/wx-3.0/wx/gtk/textentry.h /usr/include/wx-3.0/wx/ioswrap.h \
- /usr/include/c++/5/iostream /usr/include/wx-3.0/wx/gtk/textctrl.h \
+ /usr/include/c++/6/iostream /usr/include/wx-3.0/wx/gtk/textctrl.h \
  /usr/include/wx-3.0/wx/slider.h /usr/include/wx-3.0/wx/gtk/slider.h \
  /usr/include/wx-3.0/wx/gauge.h /usr/include/wx-3.0/wx/gtk/gauge.h \
  /usr/include/wx-3.0/wx/scrolwin.h /usr/include/wx-3.0/wx/gtk/scrolwin.h \
@@ -278,7 +297,7 @@ rtShowApp.h:
 
 /usr/include/wx-3.0/wx/dlimpexp.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h:
 
 /usr/include/wx-3.0/wx/debug.h:
 
@@ -294,9 +313,9 @@ rtShowApp.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h:
+/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h:
+/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/syslimits.h:
 
 /usr/include/limits.h:
 
@@ -318,7 +337,7 @@ rtShowApp.h:
 
 /usr/include/stdio.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
@@ -370,6 +389,16 @@ rtShowApp.h:
 
 /usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
 
+/usr/include/c++/6/stdlib.h:
+
+/usr/include/c++/6/cstdlib:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h:
+
 /usr/include/stdlib.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
@@ -402,97 +431,107 @@ rtShowApp.h:
 
 /usr/include/wx-3.0/wx/beforestd.h:
 
-/usr/include/c++/5/string:
+/usr/include/c++/6/string:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h:
+/usr/include/c++/6/bits/stringfwd.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h:
+/usr/include/c++/6/bits/memoryfwd.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h:
+/usr/include/c++/6/bits/char_traits.h:
 
-/usr/include/c++/5/bits/stringfwd.h:
+/usr/include/c++/6/bits/stl_algobase.h:
 
-/usr/include/c++/5/bits/memoryfwd.h:
+/usr/include/c++/6/bits/functexcept.h:
 
-/usr/include/c++/5/bits/char_traits.h:
+/usr/include/c++/6/bits/exception_defines.h:
 
-/usr/include/c++/5/bits/stl_algobase.h:
+/usr/include/c++/6/bits/cpp_type_traits.h:
 
-/usr/include/c++/5/bits/functexcept.h:
+/usr/include/c++/6/ext/type_traits.h:
 
-/usr/include/c++/5/bits/exception_defines.h:
+/usr/include/c++/6/ext/numeric_traits.h:
 
-/usr/include/c++/5/bits/cpp_type_traits.h:
+/usr/include/c++/6/bits/stl_pair.h:
 
-/usr/include/c++/5/ext/type_traits.h:
+/usr/include/c++/6/bits/move.h:
 
-/usr/include/c++/5/ext/numeric_traits.h:
+/usr/include/c++/6/bits/concept_check.h:
 
-/usr/include/c++/5/bits/stl_pair.h:
+/usr/include/c++/6/type_traits:
 
-/usr/include/c++/5/bits/move.h:
+/usr/include/c++/6/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/5/bits/concept_check.h:
+/usr/include/c++/6/bits/stl_iterator_base_funcs.h:
 
-/usr/include/c++/5/bits/stl_iterator_base_types.h:
+/usr/include/c++/6/debug/assertions.h:
 
-/usr/include/c++/5/bits/stl_iterator_base_funcs.h:
+/usr/include/c++/6/bits/stl_iterator.h:
 
-/usr/include/c++/5/debug/debug.h:
+/usr/include/c++/6/bits/ptr_traits.h:
 
-/usr/include/c++/5/bits/stl_iterator.h:
+/usr/include/c++/6/debug/debug.h:
 
-/usr/include/c++/5/bits/ptr_traits.h:
+/usr/include/c++/6/bits/predefined_ops.h:
 
-/usr/include/c++/5/bits/predefined_ops.h:
+/usr/include/c++/6/bits/postypes.h:
 
-/usr/include/c++/5/bits/postypes.h:
+/usr/include/c++/6/cwchar:
 
-/usr/include/c++/5/cwchar:
+/usr/include/c++/6/cstdint:
 
-/usr/include/c++/5/bits/allocator.h:
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h:
+/usr/include/stdint.h:
 
-/usr/include/c++/5/ext/new_allocator.h:
+/usr/include/c++/6/bits/allocator.h:
 
-/usr/include/c++/5/new:
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++allocator.h:
 
-/usr/include/c++/5/exception:
+/usr/include/c++/6/ext/new_allocator.h:
 
-/usr/include/c++/5/bits/atomic_lockfree_defines.h:
+/usr/include/c++/6/new:
 
-/usr/include/c++/5/bits/localefwd.h:
+/usr/include/c++/6/exception:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/c++locale.h:
+/usr/include/c++/6/bits/atomic_lockfree_defines.h:
 
-/usr/include/c++/5/clocale:
+/usr/include/c++/6/bits/exception_ptr.h:
+
+/usr/include/c++/6/bits/nested_exception.h:
+
+/usr/include/c++/6/bits/localefwd.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++locale.h:
+
+/usr/include/c++/6/clocale:
 
 /usr/include/locale.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
-/usr/include/c++/5/iosfwd:
+/usr/include/c++/6/iosfwd:
 
-/usr/include/c++/5/cctype:
+/usr/include/c++/6/cctype:
 
-/usr/include/c++/5/bits/ostream_insert.h:
+/usr/include/c++/6/bits/ostream_insert.h:
 
-/usr/include/c++/5/bits/cxxabi_forced.h:
+/usr/include/c++/6/bits/cxxabi_forced.h:
 
-/usr/include/c++/5/bits/stl_function.h:
+/usr/include/c++/6/bits/stl_function.h:
 
-/usr/include/c++/5/backward/binders.h:
+/usr/include/c++/6/backward/binders.h:
 
-/usr/include/c++/5/bits/range_access.h:
+/usr/include/c++/6/bits/range_access.h:
 
-/usr/include/c++/5/bits/basic_string.h:
+/usr/include/c++/6/initializer_list:
 
-/usr/include/c++/5/ext/atomicity.h:
+/usr/include/c++/6/bits/basic_string.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/gthr.h:
+/usr/include/c++/6/ext/atomicity.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/gthr-default.h:
+/usr/include/x86_64-linux-gnu/c++/6/bits/gthr.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/gthr-default.h:
 
 /usr/include/pthread.h:
 
@@ -502,15 +541,39 @@ rtShowApp.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/atomic_word.h:
+/usr/include/x86_64-linux-gnu/c++/6/bits/atomic_word.h:
 
-/usr/include/c++/5/ext/alloc_traits.h:
+/usr/include/c++/6/ext/alloc_traits.h:
 
-/usr/include/c++/5/bits/basic_string.tcc:
+/usr/include/c++/6/bits/alloc_traits.h:
+
+/usr/include/c++/6/ext/string_conversions.h:
+
+/usr/include/c++/6/cstdio:
+
+/usr/include/c++/6/cerrno:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/6/bits/functional_hash.h:
+
+/usr/include/c++/6/bits/hash_bytes.h:
+
+/usr/include/c++/6/bits/basic_string.tcc:
 
 /usr/include/wx-3.0/wx/afterstd.h:
 
-/usr/include/c++/5/tr1/type_traits:
+/usr/include/c++/6/tr1/type_traits:
 
 /usr/include/wx-3.0/wx/stringops.h:
 
@@ -554,47 +617,51 @@ rtShowApp.h:
 
 /usr/include/wx-3.0/wx/arrstr.h:
 
-/usr/include/c++/5/iterator:
+/usr/include/c++/6/iterator:
 
-/usr/include/c++/5/ostream:
+/usr/include/c++/6/ostream:
 
-/usr/include/c++/5/ios:
+/usr/include/c++/6/ios:
 
-/usr/include/c++/5/bits/ios_base.h:
+/usr/include/c++/6/bits/ios_base.h:
 
-/usr/include/c++/5/bits/locale_classes.h:
+/usr/include/c++/6/bits/locale_classes.h:
 
-/usr/include/c++/5/bits/locale_classes.tcc:
+/usr/include/c++/6/bits/locale_classes.tcc:
 
-/usr/include/c++/5/stdexcept:
+/usr/include/c++/6/system_error:
 
-/usr/include/c++/5/streambuf:
+/usr/include/x86_64-linux-gnu/c++/6/bits/error_constants.h:
 
-/usr/include/c++/5/bits/streambuf.tcc:
+/usr/include/c++/6/stdexcept:
 
-/usr/include/c++/5/bits/basic_ios.h:
+/usr/include/c++/6/streambuf:
 
-/usr/include/c++/5/bits/locale_facets.h:
+/usr/include/c++/6/bits/streambuf.tcc:
 
-/usr/include/c++/5/cwctype:
+/usr/include/c++/6/bits/basic_ios.h:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/ctype_base.h:
+/usr/include/c++/6/bits/locale_facets.h:
 
-/usr/include/c++/5/bits/streambuf_iterator.h:
+/usr/include/c++/6/cwctype:
 
-/usr/include/x86_64-linux-gnu/c++/5/bits/ctype_inline.h:
+/usr/include/x86_64-linux-gnu/c++/6/bits/ctype_base.h:
 
-/usr/include/c++/5/bits/locale_facets.tcc:
+/usr/include/c++/6/bits/streambuf_iterator.h:
 
-/usr/include/c++/5/bits/basic_ios.tcc:
+/usr/include/x86_64-linux-gnu/c++/6/bits/ctype_inline.h:
 
-/usr/include/c++/5/bits/ostream.tcc:
+/usr/include/c++/6/bits/locale_facets.tcc:
 
-/usr/include/c++/5/istream:
+/usr/include/c++/6/bits/basic_ios.tcc:
 
-/usr/include/c++/5/bits/istream.tcc:
+/usr/include/c++/6/bits/ostream.tcc:
 
-/usr/include/c++/5/bits/stream_iterator.h:
+/usr/include/c++/6/istream:
+
+/usr/include/c++/6/bits/istream.tcc:
+
+/usr/include/c++/6/bits/stream_iterator.h:
 
 /usr/include/wx-3.0/wx/intl.h:
 
@@ -619,6 +686,10 @@ rtShowApp.h:
 /usr/include/wx-3.0/wx/gdicmn.h:
 
 /usr/include/wx-3.0/wx/math.h:
+
+/usr/include/c++/6/math.h:
+
+/usr/include/c++/6/cmath:
 
 /usr/include/math.h:
 
@@ -686,7 +757,7 @@ rtShowApp.h:
 
 /usr/include/wx-3.0/wx/longlong.h:
 
-/usr/include/c++/5/limits:
+/usr/include/c++/6/limits:
 
 /usr/include/wx-3.0/wx/platinfo.h:
 
@@ -694,7 +765,7 @@ rtShowApp.h:
 
 /usr/include/wx-3.0/wx/typeinfo.h:
 
-/usr/include/c++/5/typeinfo:
+/usr/include/c++/6/typeinfo:
 
 /usr/include/wx-3.0/wx/any.h:
 
@@ -960,7 +1031,7 @@ rtShowApp.h:
 
 /usr/include/wx-3.0/wx/ioswrap.h:
 
-/usr/include/c++/5/iostream:
+/usr/include/c++/6/iostream:
 
 /usr/include/wx-3.0/wx/gtk/textctrl.h:
 
