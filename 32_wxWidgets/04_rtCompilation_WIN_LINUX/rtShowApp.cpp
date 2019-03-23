@@ -20,7 +20,7 @@
 IMPLEMENT_APP(rtShowDlgApp)
 
 bool rtShowDlgApp::OnInit()
-{
+{	mainMain();
 	rtShowDlg* dialog = new rtShowDlg(NULL);
 	SetTopWindow(dialog);
 	dialog->Show(true);		
