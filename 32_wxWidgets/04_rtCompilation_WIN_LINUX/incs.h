@@ -35,6 +35,14 @@ char preprocCMD[ CMDSIZE ];		//g++ -E main.c		//preprocess only
 							//" -E "
 							//GCC_OPT
 							//GCC_FLAGS
+							
+							//C:\GNU_ARM_CORTEX\share\gcc-arm-none-eabi\samples\src\minimum
+							//arm-none-eabi-gcc minimum.c ../../startup/startup_ARMCM0.S -mthumb 
+							//-mcpu=cortex-m0 -D__STARTUP_CLEAR_BSS -D__START=main -Os -flto 
+							//-ffunction-sections -fdata-sections --specs=nano.specs 
+							//--specs=nosys.specs -L. -L../../ldscripts -T nokeep.ld 
+							//-Wl,--gc-sections -Wl,-Map=minimum.map -g0 -Og -o "minimum_CM0.elf"
+arm-none-eabi-objdump.exe -dS "minimum_CM0.elf"
 char compileCMD[ CMDSIZE ];		//g++ -S main.c 	//C->assembly
 char assembleCMD[ CMDSIZE ];	//objdump -S a.elf	//source + hexcode + disassembly
 char sectionSizeCMD[ CMDSIZE ];	//size -tA --radix=16 a.elf
