@@ -42,7 +42,7 @@ char preprocCMD[ CMDSIZE ];		//g++ -E main.c		//preprocess only
 							//-ffunction-sections -fdata-sections --specs=nano.specs 
 							//--specs=nosys.specs -L. -L../../ldscripts -T nokeep.ld 
 							//-Wl,--gc-sections -Wl,-Map=minimum.map -g0 -Og -o "minimum_CM0.elf"
-arm-none-eabi-objdump.exe -dS "minimum_CM0.elf"
+                            //arm-none-eabi-objdump.exe -dS "minimum_CM0.elf"
 char compileCMD[ CMDSIZE ];		//g++ -S main.c 	//C->assembly
 char assembleCMD[ CMDSIZE ];	//objdump -S a.elf	//source + hexcode + disassembly
 char sectionSizeCMD[ CMDSIZE ];	//size -tA --radix=16 a.elf
@@ -114,7 +114,8 @@ void genericVariablesInit( void )
     #define pclose   _pclose
     #include <windows.h>
 	void variablesInit( void )
-    {   memset( localPATH, 0x0, CMDSIZE );GetCurrentDirectory( CMDSIZE, ( wchar_t* )localPATH );
+    {   AllocConsole(); freopen("CONOUT$", "w", stdout); freopen("CONOUT$", "w", stderr); //run console for printf's
+        memset( localPATH, 0x0, CMDSIZE );GetCurrentDirectory( CMDSIZE, ( wchar_t* )localPATH );
         genericVariablesInit();
     };
 #endif
@@ -171,7 +172,8 @@ int fileCS( char* filename )
 };
 
 int mainMain( void )
-{	printf( "mainMain()\n" );
+{	variablesInit();
+    printf( "mainMain()\n" );
 	FILE * pFile;
 	pFile = fopen ( sourceFileName, "w");	//file will be truncated and opened for write
 	if (pFile!=NULL)
@@ -181,7 +183,6 @@ int mainMain( void )
 	{	printf( "File \"%s\" open error!\n", sourceFileName ); 
 		exit( PROG_ERROR );
 	};
-	variablesInit();
 printf( "%s\n", preprocCMD );
 	CS = fileCS( sourceFileName );
 	printf( "init CS: %i\n", CS );
