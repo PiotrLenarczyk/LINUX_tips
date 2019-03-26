@@ -1,7 +1,7 @@
 [Project]
 FileName=rtShow.dev
 Name=rtShow
-UnitCount=6
+UnitCount=7
 PchHead=-1
 PchSource=-1
 Ver=3
@@ -96,7 +96,7 @@ Includes=
 Libs=
 ResourceIncludes=
 MakeIncludes=
-Compiler=
+Compiler=-g_@@_
 CppCompiler=
 Linker=-mwindows_@@_-l$(WXLIBNAME)_@@_-l$(WXLIBNAME)_gl_@@_-lwxscintilla_@@_-lwxtiff_@@_-lwxjpeg_@@_-lwxpng_@@_-lwxzlib_@@_-lwxregexu_@@_-lwxexpat_@@_-lkernel32_@@_-luser32_@@_-lgdi32_@@_-lcomdlg32_@@_-lwinspool_@@_-lwinmm_@@_-lshell32_@@_-lcomctl32_@@_-lole32_@@_-loleaut32_@@_-luuid_@@_-lrpcrt4_@@_-ladvapi32_@@_-lwsock32_@@_-lodbc32_@@_-lopengl32_@@_
 PreprocDefines=__WXMSW___@@___GNUWIN32___@@__UNICODE_@@_

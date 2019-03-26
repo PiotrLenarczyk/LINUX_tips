@@ -103,6 +103,9 @@ void rtShowDlg::WxButton_PreprocessClick(wxCommandEvent& event)
 void rtShowDlg::WxButton_AssembleClick(wxCommandEvent& event)
 {
     tmp1 = 0x1;
+    WxRichTextCtr_Console->AppendText(_(" ==== "));
+    WxRichTextCtr_Console->AppendText( localPATH );
+    WxRichTextCtr_Console->AppendText(_(" ==== "));
 	// insert your code here
 }
 

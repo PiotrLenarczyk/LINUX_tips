@@ -7,7 +7,6 @@
 //
 //---------------------------------------------------------------------------
 
-//#include "incs.h"
 #ifdef _WIN32
     #include "rtShowApp.h"
     #include "rtShowDlg.h"
@@ -21,7 +20,8 @@ IMPLEMENT_APP(rtShowDlgApp)
 
 extern int mainMain( void );
 bool rtShowDlgApp::OnInit()
-{	mainMain();
+{	
+    mainMain();
 	rtShowDlg* dialog = new rtShowDlg(NULL);
 	SetTopWindow(dialog);
 	dialog->Show(true);		

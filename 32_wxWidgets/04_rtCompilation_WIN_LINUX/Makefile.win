@@ -1,7 +1,7 @@
 # Project: rtShow
 # Compiler: Default GCC compiler
 # Compiler Type: MingW 3
-# Makefile created by wxDev-C++ IDE 7.4.2.569 on 26.03.19 09:59
+# Makefile created by wxDev-C++ IDE 7.4.2.569 on 26.03.19 11:40
 
 WXLIBNAME = wxmsw29u
 CPP       = g++.exe
@@ -16,7 +16,7 @@ RCINCS    = --include-dir "C:/PROGRA~2/Dev-Cpp/include/common"
 BIN       = Output/MingW/rtShow.exe
 DEFINES   = -D__WXMSW__ -D__GNUWIN32__ -D_UNICODE
 CXXFLAGS  = $(CXXINCS) $(DEFINES)   -g3
-CFLAGS    = $(INCS) $(DEFINES)   -g3
+CFLAGS    = $(INCS) $(DEFINES) -g   -g3
 GPROF     = gprof.exe
 ifeq ($(OS),Windows_NT)
    RM = del /Q

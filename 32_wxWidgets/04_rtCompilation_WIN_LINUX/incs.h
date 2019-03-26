@@ -23,9 +23,10 @@ char cmd[ CMDSIZE ];
 char cmdRet[ CMDSIZE ];
 char localPATH[ CMDSIZE ];
 
-#define	GCC_OPT "-mtune=native -march=native -std=c++11 -O1 -pipe "
-#define GCC_FLAGS "-g -fmax-errors=1 "
+#define	GCC_OPT                 "-mtune=native -march=native -std=c++11 -O1 -pipe "
+#define GCC_FLAGS               "-g -fmax-errors=1 "
 //target hardware compiler specific - need to be initialized
+char toolPATH[ CMDSIZE ];   //"C:\\MinGW\\bin\\"
 char toolType[ CMDSIZE ];		//"arm-none-eabi" | ""
 char preprocCMD[ CMDSIZE ];		//g++ -E main.c		//preprocess only
 							//"g++"
@@ -63,21 +64,53 @@ u32 CMDSTATUS = 0x0;
 #define	PRINT_CMD_STATUS( toBeFormated, ... )		//{ sprintf( modeStr, toBeFormated, ... ); };
 	#define	CMD_OK					0x1
 	#define	CMD_ERR					0x0
-u32	TARGET_TYPE	= 0x0;
-	#define	AMD64					0x100
-	#define	ARM_CM0PLUS				0x200
-	#define	ARM_CM4F				0x400
-	#define	STM8					0x1000
+u32	COMPILER_TYPE	= 0x0;
+    #define COMPILER_UNINITIALIZED  0x0
+    #define GCC_AMD64               0x100
+    #define GCC_ARM                 0x101   //CM0+; CM4F
+    #define SDCC                    0x200   //STM8
 //==============================================================
 //platform-dependend functions:
 int executeSystem( char* cmd );
 void variablesInit( void );
 //platform-dependend variables in variablesInit():
 //	localPATH
-#define	IF_RUNCMD( comm )	strcpy( cmd, comm ); if ( executeSystem( cmd ) )
-
+#define	IF_RUNCMD( comm )	                    strcpy( cmd, comm ); if ( executeSystem( cmd ) )
+#define RUNCMD( comm )                          strcpy( cmd, comm ); executeSystem( cmd );
+#define RUNCMD_COPY_RESULT( comm, destBuf )     IF_RUNCMD( "pwd" ){	strcpy( destBuf, cmdRet ); };
+void genericVariablesInit( void )
+    {   if (COMPILER_TYPE == COMPILER_UNINITIALIZED )   COMPILER_TYPE = GCC_AMD64;
+        switch( COMPILER_TYPE )
+        {   case GCC_AMD64:
+                break;
+            case GCC_ARM:
+                break;
+            case SDCC:
+                break;                
+            default:
+                break;
+        };
+    };
 #ifdef   __linux__
-	char path[ CMDSIZE ];
+    #define popen    popen
+    #define pclose   pclose
+	void variablesInit( void )
+	{   RUNCMD_COPY_RESULT( "pwd", localPATH );
+        genericVariablesInit();
+	};
+#endif
+#ifdef _WIN32
+	#undef WINEXE
+	#define	WINEXE	".exe"
+    #define popen    _popen
+    #define pclose   _pclose
+    #include <windows.h>
+	void variablesInit( void )
+    {   memset( localPATH, 0x0, CMDSIZE );GetCurrentDirectory( CMDSIZE, ( wchar_t* )localPATH );
+        genericVariablesInit();
+    };
+#endif
+    char buffer[ CMDSIZE ];
 	int executeSystem( char* cmd )
 	{	FILE *fp;
 		string cmdRetStr; cmdRetStr.reserve( CMDSIZE ); cmdRetStr = "";
@@ -89,8 +122,8 @@ void variablesInit( void );
 		};
 
 		/* Read the output a line at a time - output it. */
-		while ( fgets( path, sizeof( path ) - 1, fp ) != NULL )
-			cmdRetStr.append( path );
+		while ( fgets( buffer, sizeof( buffer ) - 1, fp ) != NULL )
+			cmdRetStr.append( buffer );
 		strcpy( cmdRet, cmdRetStr.c_str() );
 		/* close */
 		pclose(fp);
@@ -98,19 +131,6 @@ void variablesInit( void );
 
 		return CMD_OK;
 	};
-	
-	void variablesInit( void )
-	{	IF_RUNCMD( "pwd" )
-		{	strcpy( localPATH, cmdRet );
-		};
-	};
-#endif
-#ifdef _WIN32
-	#undef WINEXE
-	#define	WINEXE	".exe"
-	int executeSystem( char* cmd ){return 0;};
-	void variablesInit( void ){return;};
-#endif
 //==============================================================
 //target compiler-dependend functions:
 void chooseCompilerTarget( u32 targetType )
