@@ -1,50 +1,10 @@
-[Editors]
-Focused=0
-Order=0,1,2,3,4,5
-[Editor_0]
-Open=1
-Top=1
-CursorCol=18
-CursorRow=14
-TopLine=1
-LeftChar=1
-[Editor_1]
-Open=1
-Top=0
-CursorCol=1
-CursorRow=9
-TopLine=1
-LeftChar=1
-[Editor_2]
-Open=1
-Top=0
-CursorCol=1
-CursorRow=1
-TopLine=1
-LeftChar=1
-[Editor_3]
-Open=1
-Top=0
-CursorCol=29
-CursorRow=65
-TopLine=34
-LeftChar=1
-[Editor_4]
-Open=1
-Top=0
-CursorCol=2
-CursorRow=129
-TopLine=81
-LeftChar=1
-[Editor_5]
-Open=1
-Top=0
-CursorCol=1
-CursorRow=1
-TopLine=1
-LeftChar=1
-[Editor_6]
-CursorCol=20
-CursorRow=4
-TopLine=1
-LeftChar=1
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="default" />
+	<File name="rtShowApp.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>

@@ -108,6 +108,8 @@ void variablesInit( void );
 #ifdef _WIN32
 	#undef WINEXE
 	#define	WINEXE	".exe"
+	int executeSystem( char* cmd ){return 0;};
+	void variablesInit( void ){return;};
 #endif
 //==============================================================
 //target compiler-dependend functions:
