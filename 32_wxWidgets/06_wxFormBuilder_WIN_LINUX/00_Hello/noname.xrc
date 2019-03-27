@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+	<object class="wxFrame" name="MyFrame1">
+		<style>wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL</style>
+		<size>800,600</size>
+		<title></title>
+		<centered>1</centered>
+		<aui_managed>0</aui_managed>
+		<object class="wxNotebook" name="m_notebook1" />
+		<object class="wxMenuBar" name="m_menubar2">
+			<label>File</label>
+			<object class="wxMenu">
+				<label></label>
+			</object>
+		</object>
+	</object>
+</resource>

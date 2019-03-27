@@ -70,7 +70,7 @@ void rtShowDlg::CreateGUIControls()
 
 	WxButton_Preprocess = new wxButton(this, ID_WXBUTTON_PREPROCESS, _("Preprocess"), wxPoint(114, 527), wxSize(100, 35), 0, wxDefaultValidator, _("WxButton_Preprocess"));
 
-	WxRichTextCtr_Console = new wxRichTextCtrl(this, ID_WXRICHTEXTCTR_CONSOLE, _(""), wxPoint(1, 1), wxSize(781, 528), 0, wxDefaultValidator, _("WxRichTextCtr_Console"));
+	WxRichTextCtr_Console = new wxRichTextCtrl(this, ID_WXRICHTEXTCTR_CONSOLE, _(""), wxPoint(1, 1), wxSize(778, 524), 0, wxDefaultValidator, _("WxRichTextCtr_Console"));
 	WxRichTextCtr_Console->SetMaxLength(0);
 	WxRichTextCtr_Console->AppendText(_("WxRichTextCtrl1"));
 	WxRichTextCtr_Console->SetFocus();

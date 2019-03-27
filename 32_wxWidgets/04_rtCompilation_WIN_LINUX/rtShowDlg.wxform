@@ -34,8 +34,8 @@ object frmNewForm: TfrmNewForm
   object WxRichTextCtr_Console: TWxRichTextCtrl
     Left = 1
     Top = 1
-    Width = 781
-    Height = 528
+    Width = 778
+    Height = 524
     BevelInner = bvNone
     BevelOuter = bvNone
     Lines.Strings = (
