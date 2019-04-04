@@ -21,6 +21,7 @@
 //#	list 	#list program source where it was stopped
 //#	x 0x1 	#read memory at address 0x1
 //#	set {int}0x1 = 0x11223344	#set memory addres 0x1 with int (4B) value 0x11223344
+//# display a	#display a variable value each program stop
 //#	p a		#print a -> value of a variable
 //##	p &a	#print an address
 //#	p a[0]	#print first a array elem
@@ -29,6 +30,11 @@
 //#	bt		#backtrace -> print stack calls
 //#	bt 3 full	#print last three stack calls with local variables values
 //#	info target	#target connection details
+//#	info locals	#view local variables
+//#	info macro FOO	#view macro "FOO" value; #define FOO 1
+//#	gcc -gdwarf-2 -g3 empty.c #debug macros with: { p FOO; info macro FOO }
+//# finish #executes function until it finishes
+//#	return #returns from current function  stack frame (optionally with value)
 //#	info breakpoints #view all program breakpoints
 //#	info source	#info about codefile
 //#	info stack	#current instruction calls
@@ -40,6 +46,8 @@
 //#	Ctr+p 	#TUI previous cli command
 //#	Ctr+n 	#TUI next cli command
 //#	Alt+Enter	#TUI fullscreen
+//#	directory ../DirectoryPath/ #include directories for searching for files with debug information
+//# set cheduler-locking off #stop multithreading, and debug current thread
 //########################################################################
 
 #ifdef	DEBUG_CUSTOM
