@@ -7,6 +7,10 @@ cd crosstool-ng/ && ./bootstrap
 ./configure --prefix=`~/`
 make -j`nproc` && sudo make install
 mkdir -p ../staging && cd ../staging/ && ../crosstool-ng/ct-ng menuconfig 
+#optionaly one can use preconfigured samples for final tuning:
+#	./ct-ng list-samples 
+#	./ct-ng arm-unknown-linux-gnueabi 
+#	./ct-ng menuconfig 
 ########################################################################
 #########   checked on Ubuntu 16.04/18.04 64b
 ########################################################################
