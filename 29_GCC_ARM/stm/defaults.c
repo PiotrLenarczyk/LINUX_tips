@@ -134,6 +134,100 @@ typedef volatile float vf;
 #define	Z30											0x00000000
 #define	Z31											0x00000000
 
+//0bXXXXX1<----
+int ctz( unsigned no ) //count trailing zeros ctz(S8 | S9) == 0x8;
+{	switch( no )
+	{	default : goto justCTZ;
+		case 0x00:return 32;
+		case S0 : return  0;
+		case S1 : return  1;
+		case S2 : return  2;
+		case S3 : return  3;
+		case S4 : return  4;
+		case S5 : return  5;
+		case S6 : return  6;
+		case S7 : return  7;
+		case S8 : return  8;
+		case S9 : return  9;
+		case S10: return 10;
+		case S11: return 11;
+		case S12: return 12;
+		case S13: return 13;
+		case S14: return 14;
+		case S15: return 15;
+		case S16: return 16;
+		case S17: return 17;
+		case S18: return 18;
+		case S19: return 19;
+		case S20: return 20;
+		case S21: return 21;
+		case S22: return 22;
+		case S23: return 23;
+		case S24: return 24;
+		case S25: return 25;
+		case S26: return 26;
+		case S27: return 27;
+		case S28: return 28;
+		case S29: return 29;
+		case S30: return 30;
+		case S31: return 31;		
+	};
+justCTZ:
+	for ( int i = 0x0; i < 0x20; i++ )
+		if ( no & ( 0x1 << i ) )
+			return i;
+	return -1;
+};//ctz
+
+//0b---->1XXXXX
+int clz( unsigned no ) //count leading zeros  clz(S31 | S30) == 0x1F;
+{	switch( no )
+	{	default : goto justCLZ;
+		case 0x00:return 32;
+		case S0 : return 31;
+		case S1 : return 30;
+		case S2 : return 29;
+		case S3 : return 28; 
+		case S4 : return 27;
+		case S5 : return 26;
+		case S6 : return 25;
+		case S7 : return 24;
+		case S8 : return 23;
+		case S9 : return 22;
+		case S10: return 21;
+		case S11: return 20;
+		case S12: return 19;
+		case S13: return 18;
+		case S14: return 17;
+		case S15: return 16;
+		case S16: return 15;
+		case S17: return 14;
+		case S18: return 13;
+		case S19: return 12;
+		case S20: return 11;
+		case S21: return 10;
+		case S22: return  9;
+		case S23: return  8;
+		case S24: return  7;
+		case S25: return  6;
+		case S26: return  5;
+		case S27: return  4;
+		case S28: return  3;
+		case S29: return  2;
+		case S30: return  1;
+		case S31: return  0;
+	};
+justCLZ:
+	for ( int i = 0x1F; i > -1; i-- )
+	{	if ( no & ( 0x1 << i ) )
+			return 31 - i;
+	};
+	return -1;
+};//ctz
+
+#define MODULO2( a, b ) ( a - ( b * (a >> ctz(b)) ) )
+#define DIV2( a, b )	( a >> ctz(b) )
+
 #define STRINGIZE( arg )							#arg
 #define CONCATENATE( arg1, arg2 ) 					arg1##arg2
 #define	SEQ_0( x )						
@@ -467,6 +561,21 @@ typedef volatile float vf;
 #define	ASM( instruction )							asm( STRINGIZE( instruction ) );
 #define CAST( destPtr )								( destPtr )( const void* )
 #define FUNC_ADDR( funcPtr )						( u32 )( void* )funcPtr
+#define readNB( dstPtr, srcPtr, size )											\
+		{	static int i32, i8; 												\
+			i32 = size >> 0x2; i8 = size;										\
+			while( i32-- ) 	( (u32*)dstPtr )[ i32 ] = ( (u32*)srcPtr )[ i32 ];	\
+			while( i8-- ) 	( (u8*)dstPtr )[ i8 ] = ( (u8*)srcPtr )[ i8 ];		\
+		};
+																
+#define printNB( srcPtr, N ) { 	static int i; i = N; 							\
+								static u8* u8Ptr; u8Ptr = (u8*)(void*)srcPtr;	\
+								printf( "\"%s\" @0x%p:\n\t", #srcPtr, srcPtr ); \
+								while( i-- ) {printf( "%02X ", *u8Ptr++ );};	\
+								puts("");										\
+								};
+#define	printObj( obj )	printNB( &obj, sizeof( obj ) );
+
 #define	read8( addr )								*( (  u8* )( addr ) )
 #define	read16( addr )								*( ( u16* )( addr ) )
 #define	read32( addr )								*( ( u32* )( addr ) )
