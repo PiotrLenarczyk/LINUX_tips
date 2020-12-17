@@ -9,6 +9,7 @@
 //#	tbreak 119	#one-time-hit temporary breakpoint at line no. 119
 //#	watch i		#watch - set breakpoint for each variable value change
 //#	watch ( i == 15 ) #watchpoint - set breakpoint if variable i equals 15
+//# break main.c:6 if i == 5 #set conditional breakpoint on file line
 //#	c		#continue -> resume program execution
 //#	s		#step -> single source line steps
 //#	next	#single source line without steps
