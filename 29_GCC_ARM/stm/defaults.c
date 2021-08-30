@@ -264,6 +264,7 @@ justCLZ:
 #define	SEQ_31( x )									x; SEQ_30( x )
 #define	SEQ_32( x )									x; SEQ_31( x )
 #define DEPLOY( N, instruct ) 						CONCATENATE( SEQ_, N )( instruct );	//instruct;instruct;
+#define unnamed_bits(no)							UNROLL_N(no, u8:1)	//unnamed bitfields declaration - Visual Studio specific
 
 #define	 S_1( x )									x(  1 );			//S-semicolon separated number-argument macros
 #define	 S_2( x )									x(  2 ); S_1( x )
