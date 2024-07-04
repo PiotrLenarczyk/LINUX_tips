@@ -28,6 +28,7 @@
 //#	p a[0]	#print first a array elem
 //#	p a[3]@5 #print five a array elems starting from fourth elem
 //#	p *(unsigned*)0x0	#print unsigned value pointed by address 0x0
+//#	x /4xb a #print 4 bytes starting from variable address in hexdump-style
 //#	bt		#backtrace -> print stack calls
 //#	bt 3 full	#print last three stack calls with local variables values
 //#	info target	#target connection details
